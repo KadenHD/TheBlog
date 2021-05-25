@@ -1,0 +1,82 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ article.titre  }}
+{% endblock %}
+
+{% block body %}
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">TheBlog</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarText">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="/home">Home</a>
+                    </li>
+                    <li class="nav-item">
+                    <a class="nav-link" href="/profile">Profile</a>
+                    </li>
+                </ul>
+                <span class="navbar-text">
+                    (Connected as {{ app.user.username|default('Anonymous')}})
+                </span>
+                <span class="navbar-text">
+                    <a class="nav-link" href="/logout">Disconnect </a>
+                </span>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container" style="padding-top: 2%">
+        <div class="row">
+            <h1 class="h3 mb-3 font-weight-normal text-center">Post</h1>
+            <div class="card text-center">
+                <h1>{{article.titre}}</h1>
+                <img src="https://via.placeholder.com/150" style="width: 18rem; margin-left: 39%" class="card-img-top" alt="...">
+                <p>{{article.contenu}}</p>
+                <div class="card">
+                    {{article.auteur.username}}
+                </div>
+                <div class="card-footer text-muted">
+                    {{article.date | date("d/m/Y")}}
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container" style="padding-top: 2%">
+        <div class="row">
+            <h1 class="h3 mb-3 font-weight-normal text-center">Post comment</h1>
+            <div class="card text-center">
+                {{ form(form) }}
+            </div>
+        </div>
+    </div>
+
+    <div class="container" style="padding-top: 2%">
+        <div class="row">
+                <h1 class="h3 mb-3 font-weight-normal text-center">Comments</h1>
+                {% for commentaire in article.commentaires %}
+                    <div class="container" style="padding-top: 2%">
+                        <div class="row">
+                            <div class="card text-center">
+                                <div class="card-header">
+                                    {{ commentaire.auteur.username|default('An anonymous guy') }}
+                                </div>
+                                <div class="card-body">
+                                    <h5 class="card-title">{{ commentaire.contenu | raw}}</h5>
+                                </div>
+                                <div class="card-footer text-muted">
+                                    {{ commentaire.date | date("d/m/Y")}}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+        </div>
+    </div>
+{% endblock %}
+
+
