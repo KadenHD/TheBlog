@@ -31,7 +31,8 @@ class AppFixtures extends Fixture
             $article->setTitre($faker->sentence(2,true))
                 ->setAuteur($user)
                 ->setContenu($faker->sentence(10,true))
-                ->setDate($faker->dateTimeBetween('-3 months'));
+                ->setDate($faker->dateTimeBetween('-3 months'))
+                ->setImage(null);
 
             $manager->persist($article);
         }
