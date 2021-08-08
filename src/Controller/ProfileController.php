@@ -25,7 +25,7 @@ class ProfileController extends AbstractController
             return $this->redirectToRoute('app_login');
         }
 
-        return $this->render('user/profile.html.twig', [
+        return $this->render('profile/profile.html.twig', [
             "user" => $user,
         ]);
         
@@ -82,7 +82,7 @@ class ProfileController extends AbstractController
             return $this->redirectToRoute('profile');
         }
 
-        return $this->render('user/createArticle.html.twig', [
+        return $this->render('profile/createArticle.html.twig', [
             "article" => $article,
             "form" => $form->createView()
         ]);

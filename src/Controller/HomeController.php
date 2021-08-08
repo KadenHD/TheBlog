@@ -22,7 +22,7 @@ class HomeController extends AbstractController
     {   
         $articles = $repository->findAll();
 
-        return $this->render('home/index.html.twig', [
+        return $this->render('home/home.html.twig', [
             'controller_name' => 'HomeController',
             "articles" => $articles
         ]);
@@ -62,6 +62,9 @@ class HomeController extends AbstractController
         {
             $emi->persist($commentaire);
             $emi->flush();
+
+            // Redirect to last url
+            return $this->redirect($request->server->get('HTTP_REFERER'));
         }
 
         return $this->render('home/article.html.twig', [
