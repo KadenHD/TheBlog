@@ -11,13 +11,16 @@ use FOS\CKEditorBundle\Form\Type\CKEditorType;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
 
 class HomeController extends AbstractController
 {
-    #[Route('/home', name: 'home')]
+    /**
+     * @Route("/home", name="home")
+     */
     public function index(ArticleRepository $repository)
     {   
         $articles = $repository->findAll();
@@ -27,8 +30,9 @@ class HomeController extends AbstractController
             "articles" => $articles
         ]);
     }
-
-    #[Route('/articles/{id}', name: 'show_article')]
+    /**
+     * @Route("/articles/{id}", name="show_article")
+     */
     public function show(Article $article, Request $request, EntityManagerInterface $emi)
     {   
         $commentaire = new Commentaire();
@@ -65,7 +69,9 @@ class HomeController extends AbstractController
         ]);
     }
 
-    #[Route('/profile', name: 'profile')]
+    /**
+     * @Route("/profile", name="profile")
+     */
     public function profile() {
         $user = $this->getUser();
 
@@ -79,7 +85,9 @@ class HomeController extends AbstractController
         
     }
 
-    #[Route("profile/{id}", name:"delete_article", methods:["GET", "DELETE"])]
+    /**
+     * @Route("/profile/{id}", name="delete_article", methods={"GET", "DELETE"})
+     */
     public function deleteArticle(Article $article)
     {
         $emi=$this->getDoctrine()->getManager();
@@ -88,5 +96,44 @@ class HomeController extends AbstractController
 
         return $this->redirectToRoute('profile');
     }
-    
+
+    /**
+     * @Route("/articles", name="create_article")
+     */
+    public function create(Request $request, EntityManagerInterface $emi)
+    {   
+        $article = new Article();
+
+        $form = $this->createFormBuilder($article)
+            ->add("titre", TextType::class)
+            ->add("contenu", CKEditorType::class, [
+            ])
+            ->add("submit", SubmitType::class, [
+                "attr" => [
+                    "class" => "btn btn-primary",
+                    "style" => "margin-top: 0.5%;%"
+                ]
+            ])
+
+            ->getForm();
+
+        $user = $this->getUser();
+
+        $article->setAuteur($user);
+        $article->setDate(new \DateTime());
+        
+        $form->handleRequest($request);
+
+        if($form->isSubmitted() && $form->isValid())
+        {
+            $emi->persist($article);
+            $emi->flush();
+            return $this->redirectToRoute('profile');
+        }
+
+        return $this->render('user/createArticle.html.twig', [
+            "article" => $article,
+            "form" => $form->createView()
+        ]);
+    }
 }

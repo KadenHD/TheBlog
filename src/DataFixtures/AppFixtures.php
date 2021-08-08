@@ -21,7 +21,8 @@ class AppFixtures extends Fixture
                 ->setPassword($faker->password())
                 ->setEmail($faker->email())
                 ->setDateCreation($faker->dateTimeBetween('-3 months'))
-                ->setDateModif($faker->dateTimeBetween('-3 months'));
+                ->setDateModif($faker->dateTimeBetween('-3 months'))
+                ->setDescription($faker->text($maxNbChars = 200));
             $user->setRoles(['ROLE_USER']);
 
             $manager->persist($user);
