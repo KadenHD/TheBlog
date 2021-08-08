@@ -18,7 +18,7 @@ class HomeController extends AbstractController
     /**
      * @Route("/home", name="home")
      */
-    public function index(ArticleRepository $repository)
+    public function home(ArticleRepository $repository)
     {   
         $articles = $repository->findAll();
 

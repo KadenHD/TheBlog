@@ -34,7 +34,7 @@ class ProfileController extends AbstractController
     /**
      * @Route("/profile/{id}", name="delete_article", methods={"GET", "DELETE"})
      */
-    public function deleteArticle(Article $article)
+    public function delete(Article $article)
     {
         $emi=$this->getDoctrine()->getManager();
         $emi->remove($article);
@@ -61,6 +61,7 @@ class ProfileController extends AbstractController
             ])
             ->add("submit", SubmitType::class, [
                 "attr" => [
+                    "onclick" => "return confirm('Do you really want to delete this article ?')",
                     "class" => "btn btn-primary",
                     "style" => "margin-top: 0.5%;%"
                 ]
