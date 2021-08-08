@@ -12,9 +12,11 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
+use Symfony\Component\Form\Extension\Core\Type\UrlType;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\Validator\Constraints\NotBlank;
 
 class HomeController extends AbstractController
 {
@@ -39,6 +41,10 @@ class HomeController extends AbstractController
 
         $form = $this->createFormBuilder($commentaire)
             ->add("contenu", CKEditorType::class, [
+                'required' => true,
+                'constraints'=>[
+                    new NotBlank(),
+                ]
             ])
             ->add("submit", SubmitType::class, [
                 "attr" => [
@@ -106,7 +112,12 @@ class HomeController extends AbstractController
 
         $form = $this->createFormBuilder($article)
             ->add("titre", TextType::class)
+            ->add("image", UrlType::class)
             ->add("contenu", CKEditorType::class, [
+                'required' => true,
+                'constraints'=>[
+                    new NotBlank(),
+                ]
             ])
             ->add("submit", SubmitType::class, [
                 "attr" => [
