@@ -1,9 +1,10 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}All the articles
+{% block title %}{{ app.user.username }}'s profile
 {% endblock %}
 
 {% block body %}
+
     <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
         <div class="container-fluid">
             <a class="navbar-brand" href="#">TheBlog</a>
@@ -29,26 +30,15 @@
         </div>
     </nav>
 
-    <div class="container" style="padding-top: 3%">
+    <div class="container" style="padding-top: 2%">
         <div class="row">
-            {% for article in articles %}
-            <div class="col-md-3" style="padding-top: 3%">
-                <div class="card" style="width: 18rem;">
-                    <img src={{article.image|default("https://via.placeholder.com/150")}} class="card-img-top" alt="...">
-                    <div class="card-body text-center">
-                        <h5 class="card-title">{{article.titre}}</h5>
-                        {{article.auteur.username}}
-                        <div class="text-muted">
-                            {{article.date | date("d/m/Y")}}
-                            {% if article.datemodif != null %}
-                                <br><i>Last modification : {{article.datemodif | date("d/m/Y")}}</i>
-                            {% endif %}
-                        </div>
-                        <a href="show/article/{{article.id}}" class="btn btn-primary">View</a>
-                    </div>
-                </div> 
-            </div>
-            {% endfor %}
+            <a href="/profile" class="btn btn-primary" style="background-color: red">Return</a>
+            <h1 class="h3 mb-3 font-weight-normal text-center">Modify Article</h1>
+                {{ form(form) }}
+                <div class="card text-center">
+                    <u>Creation date :</u> {{ article.date | date("d/m/Y") }}
+                </div>
         </div>
     </div>
+
 {% endblock %}

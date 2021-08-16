@@ -41,7 +41,10 @@
                     {{article.auteur.username}}
                 </div>
                 <div class="card-footer text-muted">
-                    {{article.date | date("d/m/Y")}}
+                    {{article.date | date("d/m/Y")}} 
+                    {% if article.datemodif != null %}
+                        <br><i>Last modification : {{article.datemodif | date("d/m/Y")}}</i>
+                    {% endif %}
                 </div>
             </div>
         </div>
@@ -58,24 +61,24 @@
 
     <div class="container" style="padding-top: 2%">
         <div class="row">
-                <h1 class="h3 mb-3 font-weight-normal text-center">Comments</h1>
-                {% for commentaire in article.commentaires %}
-                    <div class="container" style="padding-top: 2%">
-                        <div class="row">
-                            <div class="card text-center">
-                                <div class="card-header">
-                                    {{ commentaire.auteur.username|default('An anonymous guy') }}
-                                </div>
-                                <div class="card-body">
-                                    <h5 class="card-title">{{ commentaire.contenu | raw}}</h5>
-                                </div>
-                                <div class="card-footer text-muted">
-                                    {{ commentaire.date | date("d/m/Y")}}
-                                </div>
+            <h1 class="h3 mb-3 font-weight-normal text-center">Comments</h1>
+            {% for commentaire in article.commentaires %}
+                <div class="container" style="padding-top: 2%">
+                    <div class="row">
+                        <div class="card text-center">
+                            <div class="card-header">
+                                {{ commentaire.auteur.username|default('An anonymous guy') }}
+                            </div>
+                            <div class="card-body">
+                                <h5 class="card-title">{{ commentaire.contenu | raw}}</h5>
+                            </div>
+                            <div class="card-footer text-muted">
+                                {{ commentaire.date | date("d/m/Y")}}
                             </div>
                         </div>
                     </div>
-                {% endfor %}
+                </div>
+            {% endfor %}
         </div>
     </div>
 {% endblock %}

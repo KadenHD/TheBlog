@@ -33,9 +33,9 @@ class ProfileController extends AbstractController
     }
 
     /**
-     * @Route("/profile/{id}", name="delete_article", methods={"GET", "DELETE"})
+     * @Route("/delete/article/{id}", name="delete_article", methods={"GET", "DELETE"})
      */
-    public function delete(Article $article)
+    public function deleteArticle(Article $article)
     {
         $user = $this->getUser();
 
@@ -55,9 +55,9 @@ class ProfileController extends AbstractController
     }
 
     /**
-     * @Route("/modify", name="modify_profile")
+     * @Route("/modify/user", name="modify_profile")
      */
-    public function update(Request $request, EntityManagerInterface $emi)
+    public function updateUser(Request $request, EntityManagerInterface $emi)
     {
         $user = $this->getUser();
 
@@ -113,9 +113,9 @@ class ProfileController extends AbstractController
     }
 
     /**
-     * @Route("/articles", name="create_article")
+     * @Route("/create/article", name="create_article")
      */
-    public function create(Request $request, EntityManagerInterface $emi)
+    public function createArticle(Request $request, EntityManagerInterface $emi)
     {   
         $user = $this->getUser();
 
@@ -159,6 +159,66 @@ class ProfileController extends AbstractController
         }
 
         return $this->render('profile/createArticle.html.twig', [
+            "article" => $article,
+            "form" => $form->createView()
+        ]);
+    }
+
+    /**
+     * @Route("/modify/article/{id}", name="modify_article")
+     */
+    public function updateArticle(Article $article, Request $request, EntityManagerInterface $emi)
+    {
+        $user = $this->getUser();
+        
+        $author = $article->getAuteur();
+
+        if ($user == null || $user != $author ) {
+            return $this->redirectToRoute('app_login');
+        }
+
+        $form = $this->createFormBuilder($article)
+            ->add("titre", TextType::class, [
+                "attr" => [
+                    'value' => $article->getTitre(),
+                ]
+            ])
+            ->add("image", UrlType::class, [
+                "attr" => [
+                    'value' => $article->getImage(),
+                ]
+            ])
+            ->add("contenu", CKEditorType::class, [
+                "attr" => [
+                    'value' => $article->getContenu(),
+                ],
+                'required' => true,
+                'constraints'=>[
+                    new NotBlank(),
+                ]
+            ])
+            ->add("submit", SubmitType::class, [
+                "attr" => [
+                    "onclick" => "return confirm('Do you really want to modify your infos ?')",
+                    "class" => "btn btn-primary",
+                    "style" => "margin-top: 0.5%;%"
+                ]
+            ])
+
+            ->getForm();
+            
+        $article->setDateModif(new \DateTime());
+
+        $form->handleRequest($request);
+
+        if($form->isSubmitted() && $form->isValid())
+        {
+            $emi->persist($article);
+            $emi->flush();
+            return $this->redirectToRoute('profile');
+        }
+
+        return $this->render('profile/modifyArticle.html.twig', [
             "article" => $article,
             "form" => $form->createView()
         ]);

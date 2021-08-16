@@ -50,6 +50,11 @@ class Article
      */
     private $image;
 
+    /**
+     * @ORM\Column(type="date", nullable=true)
+     */
+    private $date_modif;
+
     public function __construct()
     {
         $this->commentaires = new ArrayCollection();
@@ -146,6 +151,18 @@ class Article
     public function setImage(?string $image): self
     {
         $this->image = $image;
+
+        return $this;
+    }
+
+    public function getDateModif(): ?\DateTimeInterface
+    {
+        return $this->date_modif;
+    }
+
+    public function setDateModif(?\DateTimeInterface $date_modif): self
+    {
+        $this->date_modif = $date_modif;
 
         return $this;
     }

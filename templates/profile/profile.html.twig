@@ -61,14 +61,14 @@
                         <i>null</i>
                     {% endif %}
                 </div>
-                <a href="/modify" class="btn btn-primary" style="background-color: orange">Modify Informations</a>
+                <a href="/modify/user" class="btn btn-primary" style="background-color: orange">Modify Informations</a>
         </div>
     </div>
 
     <div class="container" style="padding-top: 2%">
         <div class="row">
             <h1 class="h3 mb-3 font-weight-normal text-center">Your posts</h1>
-            <a href="/articles" class="btn btn-primary" style="background-color: green">Create new post</a>
+            <a href="/create/article" class="btn btn-primary" style="background-color: green">Create new post</a>
             {% for article in user.articles %}
                 <div class="col-md-3" style="padding-top: 3%">
                     <div class="card" style="width: 18rem;">
@@ -77,9 +77,13 @@
                             <h5 class="card-title">{{article.titre}}</h5>
                             <div class="text-muted">
                                 {{article.date | date("d/m/Y")}}
+                                {% if article.datemodif != null %}
+                                    <br><i>Last modification : {{article.datemodif | date("d/m/Y")}}</i>
+                                {% endif %}
                             </div>
-                            <a href="/articles/{{article.id}}" class="btn btn-primary">View</a>
-                            <a href="/profile/{{article.id}}" onclick="return confirm('Do you really want to delete this article ?')" class="btn btn-primary" style="background-color: red">Delete</a>
+                            <a href="/show/article/{{article.id}}" class="btn btn-primary">View</a>
+                            <a href="/modify/article/{{article.id}}" class="btn btn-primary" style="background-color: orange">Modify</a>
+                            <a href="/delete/article/{{article.id}}" onclick="return confirm('Do you really want to delete this article ?')" class="btn btn-primary" style="background-color: red">Delete</a>
                         </div>
                     </div> 
                 </div>

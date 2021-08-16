@@ -28,7 +28,7 @@ class HomeController extends AbstractController
         ]);
     }
     /**
-     * @Route("/articles/{id}", name="show_article")
+     * @Route("/show/article/{id}", name="show_article")
      */
     public function show(Article $article, Request $request, EntityManagerInterface $emi)
     {   

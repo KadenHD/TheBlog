@@ -38,14 +38,6 @@
                 <div class="card text-center">
                     <u>Creation date :</u> {{ app.user.datecreation | date("d/m/Y") }}
                 </div>
-                <div class="card text-center">
-                    <u>Last modification :</u> 
-                    {% if app.user.datemodif != null %}
-                        {{ app.user.datemodif | date("d/m/Y") }}
-                    {% elseif app.user.datemodif == null %}
-                        <i>null</i>
-                    {% endif %}
-                </div>
         </div>
     </div>
 
