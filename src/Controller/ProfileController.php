@@ -15,6 +15,7 @@ use Symfony\Component\Validator\Constraints\NotBlank;
 
 class ProfileController extends AbstractController
 {
+
     /**
      * @Route("/profile", name="profile")
      */
@@ -36,11 +37,35 @@ class ProfileController extends AbstractController
      */
     public function delete(Article $article)
     {
-        $emi=$this->getDoctrine()->getManager();
-        $emi->remove($article);
-        $emi->flush();
+        $user = $this->getUser();
 
+        if ($user == null) {
+            return $this->redirectToRoute('app_login');
+        }
+        
+        if (/* current user id == author_id from article */$user == $article) {
+            $emi=$this->getDoctrine()->getManager();
+            $emi->remove($article);
+            $emi->flush();
+        }
+        
         return $this->redirectToRoute('profile');
+    }
+
+    /**
+     * @Route("/modify", name="modify_profile")
+     */
+    public function update()
+    {
+        $user = $this->getUser();
+
+        if ($user == null) {
+            return $this->redirectToRoute('app_login');
+        }
+
+        return $this->render('profile/modifyUser.html.twig', [
+            "user" => $user,
+        ]);
     }
 
     /**
@@ -48,6 +73,12 @@ class ProfileController extends AbstractController
      */
     public function create(Request $request, EntityManagerInterface $emi)
     {   
+        $user = $this->getUser();
+
+        if ($user == null) {
+            return $this->redirectToRoute('app_login');
+        }
+
         $article = new Article();
 
         $form = $this->createFormBuilder($article)
