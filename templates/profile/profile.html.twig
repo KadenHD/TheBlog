@@ -37,6 +37,14 @@
                     <u>User :</u> {{ app.user.username }}
                 </div>
                 <div class="card text-center">
+                    <u>Role :</u>                     
+                    {% if app.user.roles == ["ROLE_USER"] %}
+                        User
+                    {% elseif app.user.roles == null %}
+                        <i>null</i>
+                    {% endif %}
+                </div>
+                <div class="card text-center">
                     <u>Email :</u> {{ app.user.email }}
                 </div>
                 <div class="card text-center">
