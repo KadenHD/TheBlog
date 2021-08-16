@@ -40,14 +40,20 @@
                     <u>Email :</u> {{ app.user.email }}
                 </div>
                 <div class="card text-center">
+                    <u>Biography :</u> {{ app.user.description | raw }}
+                </div>
+                <div class="card text-center">
                     <u>Creation date :</u> {{ app.user.datecreation | date("d/m/Y") }}
                 </div>
                 <div class="card text-center">
-                    <u>Last modification :</u> {{ app.user.datemodif | date("d/m/Y") }}
+                    <u>Last modification :</u>
+                    {% if app.user.datemodif != null %}
+                        {{ app.user.datemodif | date("d/m/Y") }}
+                    {% elseif app.user.datemodif == null %}
+                        <i>null</i>
+                    {% endif %}
                 </div>
-                <div class="card text-center">
-                    <u>Biography :</u> {{ app.user.description }}
-                </div>
+                <a href="/modify" class="btn btn-primary" style="background-color: orange">Modify Informations</a>
         </div>
     </div>
 

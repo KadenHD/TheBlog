@@ -57,7 +57,7 @@ class ProfileController extends AbstractController
     /**
      * @Route("/modify", name="modify_profile")
      */
-    public function update()
+    public function update(Request $request, EntityManagerInterface $emi)
     {
         $user = $this->getUser();
 
@@ -65,8 +65,50 @@ class ProfileController extends AbstractController
             return $this->redirectToRoute('app_login');
         }
 
+        $form = $this->createFormBuilder($user)
+            ->add("username", TextType::class, [
+                "attr" => [
+                    'value' => $user->getUsername(),
+                ]
+            ])
+            ->add("email", TextType::class, [
+                "attr" => [
+                    'value' => $user->getEmail(),
+                ]
+            ])
+            ->add("description", CKEditorType::class, [
+                "attr" => [
+                    'value' => $user->getDescription(),
+                ],
+                'required' => true,
+                'constraints'=>[
+                    new NotBlank(),
+                ]
+            ])
+            ->add("submit", SubmitType::class, [
+                "attr" => [
+                    "onclick" => "return confirm('Do you really want to modify your infos ?')",
+                    "class" => "btn btn-primary",
+                    "style" => "margin-top: 0.5%;%"
+                ]
+            ])
+
+            ->getForm();
+            
+        $user->setDateModif(new \DateTime());
+
+        $form->handleRequest($request);
+
+        if($form->isSubmitted() && $form->isValid())
+        {
+            $emi->persist($user);
+            $emi->flush();
+            return $this->redirectToRoute('profile');
+        }
+
         return $this->render('profile/modifyUser.html.twig', [
             "user" => $user,
+            "form" => $form->createView()
         ]);
     }
 

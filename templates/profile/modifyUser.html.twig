@@ -32,21 +32,19 @@
 
     <div class="container" style="padding-top: 2%">
         <div class="row">
-            <h1 class="h3 mb-3 font-weight-normal text-center">Account Informations</h1>
-                <div class="card text-center">
-                    <u>User :</u> {{ app.user.username }}
-                </div>
-                <div class="card text-center">
-                    <u>Email :</u> {{ app.user.email }}
-                </div>
+            <a href="/profile" class="btn btn-primary" style="background-color: red">Return</a>
+            <h1 class="h3 mb-3 font-weight-normal text-center">Modify Informations</h1>
+                {{ form(form) }}
                 <div class="card text-center">
                     <u>Creation date :</u> {{ app.user.datecreation | date("d/m/Y") }}
                 </div>
                 <div class="card text-center">
-                    <u>Last modification :</u> {{ app.user.datemodif | date("d/m/Y") }}
-                </div>
-                <div class="card text-center">
-                    <u>Biography :</u> {{ app.user.description }}
+                    <u>Last modification :</u> 
+                    {% if app.user.datemodif != null %}
+                        {{ app.user.datemodif | date("d/m/Y") }}
+                    {% elseif app.user.datemodif == null %}
+                        <i>null</i>
+                    {% endif %}
                 </div>
         </div>
     </div>
