@@ -43,6 +43,7 @@ class HomeController extends AbstractController
             ])
             ->add("submit", SubmitType::class, [
                 "attr" => [
+                    "onclick" => "return confirm('Do you really want to post this comment ?')",
                     "class" => "btn btn-primary",
                     "style" => "margin-top: 0.5%;%"
                 ]

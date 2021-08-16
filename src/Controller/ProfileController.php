@@ -42,8 +42,10 @@ class ProfileController extends AbstractController
         if ($user == null) {
             return $this->redirectToRoute('app_login');
         }
-        
-        if (/* current user id == author_id from article */$user == $article) {
+
+        $author = $article->getAuteur();
+
+        if ($user == $author) {
             $emi=$this->getDoctrine()->getManager();
             $emi->remove($article);
             $emi->flush();
@@ -92,7 +94,7 @@ class ProfileController extends AbstractController
             ])
             ->add("submit", SubmitType::class, [
                 "attr" => [
-                    "onclick" => "return confirm('Do you really want to delete this article ?')",
+                    "onclick" => "return confirm('Do you really want to create this article ?')",
                     "class" => "btn btn-primary",
                     "style" => "margin-top: 0.5%;%"
                 ]
