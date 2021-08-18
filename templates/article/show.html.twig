@@ -1,0 +1,35 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ article.titre  }}
+{% endblock %}
+
+{% block body %}
+
+    {% include "navbar.html.twig" %}
+
+    <div class="container" style="padding-top: 2%">
+        <div class="row">
+            <a href="/article" class="btn btn-primary" style="background-color: red">Retour</a>
+            <div class="card text-center">
+                <h1>{{article.titre}}</h1>
+                <img src={{article.image|default("https://via.placeholder.com/150")}} tyle="width: 18rem; margin-left: 39%" class="card-img-top" alt="...">
+                <p>{{article.contenu | raw}}</p>
+                <div class="card">
+                    {{article.auteur.username}}
+                </div>
+                <div class="card-footer text-muted">
+                    {{article.date | date("d/m/Y")}} 
+                    {% if article.datemodif != null %}
+                        <br><i>Modifé le : {{article.datemodif | date("d/m/Y")}}</i>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+
+    {% include "commentaire/form.html.twig" %}
+    {% include "commentaire/show.html.twig" %}
+
+{% endblock %}
+
+

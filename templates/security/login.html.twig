@@ -1,32 +1,10 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Log in!{% endblock %}
+{% block title %}Se connecter{% endblock %}
 
 {% block body %} 
-    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
-        <div class="container-fluid">
-            <a class="navbar-brand" href="#">TheBlog</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarText">
-                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                    <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="/home">Home</a>
-                    </li>
-                    <li class="nav-item">
-                    <a class="nav-link" href="/login">Login</a>
-                    </li>
-                    <li class="nav-item">
-                    <a class="nav-link" href="/register">Register</a>
-                    </li>
-                </ul>
-                <span class="navbar-text">
-                    
-                </span>
-            </div>
-        </div>
-    </nav>
+
+    {% include "navbar.html.twig" %}
 
     <div class="container">
         <div class="row">
@@ -38,15 +16,15 @@
 
                     {% if app.user %}
                         <div class="mb-3">
-                            You are logged in as {{ app.user.username }}, <a href="{{ path('app_logout') }}">Logout</a>
+                            Vous êtes connecté en tant que {{ app.user.username }}, <a href="{{ path('app_logout') }}">Logout</a>
                         </div>
                     {% endif %}
 
-                    <h1 class="h3 mb-3 font-weight-normal">Login</h1>
+                    <h1 class="h3 mb-3 font-weight-normal">Connection</h1>
 
                     <label for="inputEmail">Email</label>
                     <input type="email" value="{{ last_username }}" name="email" id="inputEmail" class="form-control" autocomplete="email" required autofocus>
-                    <label for="inputPassword">Password</label>
+                    <label for="inputPassword">Mot de passe</label>
                     <input type="password" name="password" id="inputPassword" class="form-control" autocomplete="current-password" required>
                     <input type="hidden" name="_csrf_token"
                             value="{{ csrf_token('authenticate') }}">
@@ -60,7 +38,7 @@
                             </label>
                         </div>
                     #}
-                    <button class="btn btn-primary" type="submit" style="position: static; transform: translate(120%, -10%); margin-top: 5%;">Sign in</button>
+                    <button class="btn btn-primary" type="submit" style="position: static; transform: translate(70%, -10%); margin-top: 5%;">Connection</button>
                 </form>
             </div>
         </div>

@@ -1,0 +1,35 @@
+{% extends "base.html.twig" %}
+
+{% form_theme formArticle 'bootstrap_4_layout.html.twig' %}
+
+{% block body %}
+        {% include "navbar.html.twig" %}
+
+        <div class="container" style="padding-top: 2%">
+                <div class="row">
+                        <a href="/user" class="btn btn-primary" style="background-color: red">Retour</a>
+                        <h1 class="h3 mb-3 font-weight-normal text-center">
+                        {% if editMode %}
+                                Modification de l'article
+                        {% else %}
+                                Création de l'article
+                        {% endif %}
+                        </h1>
+                        <div class="card text-center">
+                                {{ form_start(formArticle) }}
+                                {{ form_row(formArticle.titre, {'attr': {'placeholder': "Titre de l'article"}}) }}
+                                {{ form_row(formArticle.image, {'attr': {'placeholder': "URL de l'image"}}) }}
+                                {{ form_row(formArticle.contenu) }}
+                                {% if editMode %}
+                                <button type="submit" class="btn btn-primary" style="margin-top: 0.5%;%" onclick="return confirm('Souhaitez-vous vraiment modifier cet article ?')">
+                                        Modifier l'article
+                                {% else %}
+                                <button type="submit" class="btn btn-primary" style="margin-top: 0.5%;%" onclick="return confirm('Souhaitez-vous vraiment créer cet article ?')">
+                                        Ajouter l'article
+                                {% endif %}
+                                </button>
+                                {{ form_end(formArticle) }}
+                        </div>
+                </div>
+        </div>
+{% endblock %}

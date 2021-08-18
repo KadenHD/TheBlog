@@ -1,0 +1,37 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <!-- Articles -->
+    {% if app.request.get('alert') == 'articleNotYour' %}
+        <div style="text-align: center;" class="alert alert-danger" role="alert">
+            L' <b>Article</b> que vous avez essayé d'<b>Éditer</b> n'est <b>Pas le vôtre</b> !
+        </div>
+    {% elseif app.request.get('alert') == 'articleCreated' %}
+        <div style="text-align: center;" class="alert alert-success" role="alert">
+            L' <b>Article</b> à bien été <b>Créé</b> !
+        </div>
+    {% elseif app.request.get('alert') == 'articleEdited' %}
+        <div style="text-align: center;" class="alert alert-success" role="alert">
+            L' <b>Article</b> à bien été <b>Édité</b> !
+        </div>
+    {% elseif app.request.get('alert') == 'articleDeleted' %}
+        <div style="text-align: center;" class="alert alert-success" role="alert">
+            L' <b>Article</b> à bien été <b>Supprimé</b> !
+        </div>
+    <!-- Commentaires -->
+    {% elseif app.request.get('alert') == 'commentCreated' %}
+        <div style="text-align: center;" class="alert alert-success" role="alert">
+            Le <b>Commentaire</b> à bien été <b>Créé</b> !
+        </div>
+    <!-- Users -->
+    {% elseif app.request.get('alert') == 'userNotYour' %}
+        <div style="text-align: center;" class="alert alert-danger" role="alert">
+            Le <b>Profil</b> que vous avez essayé d'<b>Éditer</b> n'est <b>Pas le vôtre</b> !
+        </div>
+    {% elseif app.request.get('alert') == 'userEdited' %}
+        <div style="text-align: center;" class="alert alert-success" role="alert">
+            Le <b>Profil</b> à bien été <b>Édité</b> !
+        </div>
+
+    {% endif %}
+{% endblock %}

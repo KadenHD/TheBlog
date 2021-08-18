@@ -1,0 +1,21 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Profil de {{ app.user.username }}
+{% endblock %}
+
+{% block body %}
+
+    {% include "navbar.html.twig" %}    
+
+    <div class="container" style="padding-top: 2%">
+        <div class="row">
+            <a href="/user" class="btn btn-primary" style="background-color: red">Retour</a>
+            <h1 class="h3 mb-3 font-weight-normal text-center">Modifier mes informations</h1>
+                {% include "user/form.html.twig" %}
+                <div class="card text-center">
+                    <u>Créé le :</u> {{ app.user.datecreation | date("d/m/Y") }}
+                </div>
+        </div>
+    </div>
+
+{% endblock %}
