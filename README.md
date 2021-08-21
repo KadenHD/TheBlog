@@ -1,4 +1,5 @@
 # To do :
+- rajouter le footer, include le css puis changer dans tous les twigs rajouter le main qui est dans le body et englobe tous le contenu
 - mettre le navbar dans un head et sortir l'include des twig hors du body (au dessus)
 - faire pareil pour le footer
 - optimiser les fonctions crud
