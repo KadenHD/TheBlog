@@ -1,10 +1,12 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    {{ form_start(formUser) }}
-    {{ form_row(formUser.username, {'attr': {'value': user.username }}) }}
-    {{ form_row(formUser.email, {'attr': {'value': user.email }}) }}
-    {{ form_row(formUser.description, {'attr': {'value': user.description }}) }}
-    <button type="submit" class="btn btn-primary" style="margin-top: 0.5%;%" onclick="return confirm('Souhaitez-vous vraiment modifier votre profil ?')">Modifier le profil</button>
-    {{ form_end(formUser) }}
+    <div class="card text-center">
+        {{ form_start(formUser) }}
+        {{ form_row(formUser.username, {'attr': {'value': user.username }}) }}
+        {{ form_row(formUser.email, {'attr': {'value': user.email }}) }}
+        {{ form_row(formUser.description, {'attr': {'value': user.description }}) }}
+        <button type="submit" class="btn btn-primary" style="margin-top: 0.5%;%" onclick="return confirm('Souhaitez-vous vraiment modifier votre profil ?')">Modifier le profil</button>
+        {{ form_end(formUser) }}
+    </div>
 {% endblock %}

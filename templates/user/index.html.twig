@@ -45,7 +45,7 @@
             <h1 class="h3 mb-3 font-weight-normal text-center">Mes articles</h1>
             <a href="/article/create" class="btn btn-primary" style="background-color: green">Créer un nouvel article</a>
             {% for article in user.articles %}
-                <div class="col-md-3" style="padding-top: 3%">
+                <div class="col-md-3" style="padding-top: 3%;width : auto">
                     <div class="card" style="width: 18rem;">
                         <img src={{article.image|default("https://via.placeholder.com/150")}} class="card-img-top" alt="...">
                         <div class="card-body text-center">
@@ -58,7 +58,7 @@
                             </div>
                             <a href="/article/show/{{article.id}}" class="btn btn-primary">Voir</a>
                             <a href="/article/edit/{{article.id}}" class="btn btn-primary" style="background-color: orange">Modifier</a>
-                            <a href="/article/delete/{{article.id}}" onclick="return confirm('Do you really want to delete this article ?')" class="btn btn-primary" style="background-color: red">Supprimer</a>
+                            <a href="/article/delete/{{article.id}}" onclick="return confirm('Voulez-vous vraiment supprimer cet article ?')" class="btn btn-primary" style="background-color: red">Supprimer</a>
                         </div>
                     </div> 
                 </div>

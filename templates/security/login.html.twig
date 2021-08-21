@@ -5,14 +5,13 @@
 {% block body %} 
 
     {% include "navbar.html.twig" %}
-
+    {% if error %}
+        <div style="text-align: center;" class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+    {% endif %}
     <div class="container">
         <div class="row">
             <div class="card" style="width: 18rem; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);">
                 <form method="post">
-                    {% if error %}
-                        <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
-                    {% endif %}
 
                     {% if app.user %}
                         <div class="mb-3">

@@ -36,7 +36,7 @@ class RegistrationFormType extends AbstractType
             ])
             ->add('plainPassword', RepeatedType::class, [
                 'type' => PasswordType::class,
-                'invalid_message' => 'The password fields must match.',
+                'invalid_message' => 'Mots de passe différents !',
                 'options' => ['attr' => ['class' => 'password-field form-control']],
                 'required' => true,
                 'first_options' => ['label' => 'Mot de passe'],
@@ -49,7 +49,7 @@ class RegistrationFormType extends AbstractType
                     ]),
                     new Length([
                         'min' => 6,
-                        'minMessage' => 'Your password should be at least {{ limit }} characters',
+                        'minMessage' => 'Le mot de passe doit faire au moin {{ limit }} caractères !',
                         // max length allowed by Symfony for security reasons
                         'max' => 4096,
                     ]),

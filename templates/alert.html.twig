@@ -32,6 +32,10 @@
         <div style="text-align: center;" class="alert alert-success" role="alert">
             Le <b>Profil</b> à bien été <b>Édité</b> !
         </div>
+    {% elseif app.request.get('alert') == 'userCreated' %}
+        <div style="text-align: center;" class="alert alert-success" role="alert">
+            Le <b>Profil</b> à bien été <b>Créé</b> !
+        </div>
 
     {% endif %}
 {% endblock %}
