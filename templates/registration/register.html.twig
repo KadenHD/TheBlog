@@ -9,27 +9,29 @@
     {% for flashError in app.flashes('verify_email_error') %}
         <div class="alert alert-danger" role="alert">{{ flashError }}</div>
     {% endfor %}
+    <main>
+        <div class="container">
+            <div class="row">
+                <div class="card" style="width: 18rem; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);">
+                    <h1 class="h3 mb-3 font-weight-normal">Inscription</h1>
 
-    <div class="container">
-        <div class="row">
-            <div class="card" style="width: 18rem; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);">
-                <h1 class="h3 mb-3 font-weight-normal">Inscription</h1>
+                    {{ form_start(registrationForm) }}
+                        {{ form_row(registrationForm.username, {
+                            label: 'Nom'
+                        }) }}
+                        {{ form_row(registrationForm.email, {
+                            label: 'Email'
+                        }) }}
+                        {{ form_row(registrationForm.plainPassword) }}
+                        {{ form_row(registrationForm.agreeTerms, {
+                            label: 'Accepter les termes'
+                        }) }}
 
-                {{ form_start(registrationForm) }}
-                    {{ form_row(registrationForm.username, {
-                        label: 'Nom'
-                    }) }}
-                    {{ form_row(registrationForm.email, {
-                        label: 'Email'
-                    }) }}
-                    {{ form_row(registrationForm.plainPassword) }}
-                    {{ form_row(registrationForm.agreeTerms, {
-                        label: 'Accepter les termes'
-                    }) }}
-
-                    <button type="submit" class="btn btn-primary" style="position: relative; transform: translate(100%, -10%);" onclick="return confirm('Souhaitez-vous vraiment vous inscrire ?')">S'inscrire</button>
-                {{ form_end(registrationForm) }}
+                        <button type="submit" class="btn btn-primary" style="position: relative; transform: translate(100%, -10%);" onclick="return confirm('Souhaitez-vous vraiment vous inscrire ?')">S'inscrire</button>
+                    {{ form_end(registrationForm) }}
+                </div>
             </div>
         </div>
-    </div>
+    </main>
+    {% include "footer.html.twig" %}
 {% endblock %}

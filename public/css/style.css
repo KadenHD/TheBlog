@@ -1,0 +1,98 @@
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    
+}
+main {
+    flex: 1 0 auto;
+}
+#footer {
+    display: flex;
+    width: 100%;
+}
+#footer1 {
+    background-color: #006699;
+    float:left; 
+    text-align: right;
+    padding-right: 40px;
+    width: 35%;
+}
+#footer2-3 {
+    float: right;
+    text-align: left;
+    width: 65%;
+}
+#footer2 {
+    background-color: black;
+    padding-left: 40px;
+}
+#footer3 {
+    background-color: rgb(196, 233, 235);
+}
+@media (max-width: 1150px) {
+    #footer1 {
+        float: none;
+        text-align: center;
+        width: 100%;
+    }
+    #footer2 {
+        float: none;
+        text-align: center;
+        width: 100%;
+    }
+    #footer3 {
+        float: none;
+        text-align: center;
+        width: 100%;
+    }
+}
+
+/**************/
+footer #logoPROMEOwhite {
+    width: 200px;
+    padding-top: 50px;
+    padding-bottom: 23px;
+    border-bottom: 2px white solid;
+}
+footer .social-text {
+    margin-top: 20px;
+}
+footer #logoUIMM {
+    width: 100px;
+}
+footer #logoMEF {
+    width: 200px;
+}
+footer #logoHDF {
+    width: 100px;
+}
+footer #logoFSE {
+    width: 200px;
+}
+footer #logoFAQQSE {
+    width: 100px;
+}
+footer #logoDATADOCK {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    width: 60px;
+}
+footer .logo {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    margin-left: 3%;
+    width: auto;
+}
+footer a {
+    color: #ffffff;
+    text-decoration: none;
+}
+footer a:hover {
+    color: #b6b6b6;
+    text-decoration: none;
+}
+footer .links {
+    margin-left: 5px;
+    margin-right: 5px;
+}
