@@ -6,6 +6,39 @@
     
 # Installation
 
+### Prérequis
+
+Il faut d'abord installer
+
+```
+Xamp ou Laragon, Composer et PHP (en version 7.2 minimum).
+```
+
+### Mise en place du projet
+
+Cloner le projet sur la machine
+
+```
+git clone https://github.com/KadenHD/TheBlog.git
+```
+
+Ensuite dans le projet
+
+```
+composer install
+```
+
+Editer le fichier .env puis
+
+```
+php bin/console doctrine:schema:create
+```
+
+Puis lancer les fixtures
+
+```
+php bin/console doctrine:fixtures:load
+```
 # Technologies
 
 ***Le projet a été créé en utilisant :***
