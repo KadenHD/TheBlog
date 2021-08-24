@@ -10,16 +10,16 @@
 
 ***Les logiciels :***
 
-> Visual Studio Code
-> Symfony
-> PHPMyAdmin
+> Visual Studio Code,
+> Symfony,
+> PHPMyAdmin,
 > Composer
 
 ***Les langues :***
 
-> PHP
-> HTML
-> CSS
+> PHP,
+> HTML,
+> CSS,
 > MySQL
 
 
