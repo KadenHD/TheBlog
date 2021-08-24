@@ -30,5 +30,5 @@
 - add delete button of comment and article on all page where we see them ?
 
 # Sources : 
-> https://github.com/tvatry/adblangues
+> https://github.com/tvatry/adblangues <br>
 > https://youtu.be/_cgZheTv-FQ
