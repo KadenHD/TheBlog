@@ -11,7 +11,7 @@
 Il faut d'abord installer
 
 ```
-Xamp ou Laragon, Composer et PHP (en version 7.2 minimum).
+Xamp ou Laragon ainsi que PHPMyAdmin, Composer et PHP (en version 7.2 minimum).
 ```
 
 ### Mise en place du projet
