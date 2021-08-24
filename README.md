@@ -30,5 +30,5 @@
 - add delete button of comment and article on all page where we see them ?
 
 # Sources : 
-> https://github.com/tvatry/adblangues <br>
-> https://youtu.be/_cgZheTv-FQ
+- Notre modèle : https://github.com/tvatry/adblangues <br>
+- Une vidéo sur la création de formulaires : https://youtu.be/_cgZheTv-FQ
