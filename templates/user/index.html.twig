@@ -8,7 +8,7 @@
     {% include "navbar.html.twig" %}    
 
     <main>
-        <div class="container" style="padding-top: 2%">
+        <div class="container">
             <div class="row">
                 <h1 class="h3 mb-3 font-weight-normal text-center">Informations de compte</h1>
                     <div class="card text-center">
@@ -41,13 +41,13 @@
             </div>
         </div>
 
-        <div class="container" style="padding-top: 2%">
+        <div class="container">
             <div class="row">
                 <h1 class="h3 mb-3 font-weight-normal text-center">Mes articles</h1>
                 <a href="/article/create" class="btn btn-primary" style="background-color: green">Créer un nouvel article</a>
                 {% for article in user.articles %}
-                    <div class="col-md-3" style="padding-top: 3%;width : auto">
-                        <div class="card" style="width: 18rem;">
+                    <div class="col-md-3">
+                        <div class="card">
                             <img src={{article.image|default("https://via.placeholder.com/150")}} class="card-img-top" alt="...">
                             <div class="card-body text-center">
                                 <h5 class="card-title">{{article.titre}}</h5>

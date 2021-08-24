@@ -96,3 +96,60 @@ footer .links {
     margin-left: 5px;
     margin-right: 5px;
 }
+
+nav {
+    display: flex;
+    flex-direction: row;
+}
+
+nav img {
+    height: 80px;
+}
+
+#nav {
+    display: block;
+    top: 0;
+    height: 80px;
+    background-color: #006699;
+    width: 100%;
+}
+
+#nav #text {
+    color: white;
+    display: flex;
+    flex-direction: row;
+    padding-top: 25px;
+    justify-content: space-between;
+}
+
+#nav #text p {
+    display: inline;
+}
+
+nav .secondary{
+    color: #b6b6b6;
+    text-decoration: none;
+}
+nav .secondary:hover {
+    color: #ffffff;
+    text-decoration: none;
+}
+
+nav .main{
+    color: #ffffff;
+    text-decoration: none;
+}
+nav .main:hover {
+    color: #b6b6b6;
+    text-decoration: none;
+}
+
+.container, .col-md-3 {
+    padding-top: 3%;
+    padding-bottom: 3%;
+}
+
+nav ul li {
+    display: inline;
+    padding-left: 30px;
+}

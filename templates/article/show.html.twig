@@ -7,12 +7,14 @@
 
     {% include "navbar.html.twig" %}
     <main>
-        <div class="container" style="padding-top: 2%">
+        <div class="container">
             <div class="row">
                 <a href="/article" class="btn btn-primary" style="background-color: red">Retour</a>
                 <div class="card text-center">
                     <h1>{{article.titre}}</h1>
-                    <img src={{article.image|default("https://via.placeholder.com/150")}} tyle="width: 18rem; margin-left: 39%" class="card-img-top" alt="...">
+                    <div style="align-text: center;">
+                        <img src={{article.image|default("https://via.placeholder.com/150")}} style="width: 500px;" class="card-img-top" alt="...">
+                    </div>
                     <p>{{article.contenu | raw}}</p>
                     <div class="card">
                         {{article.auteur.username}}

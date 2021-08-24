@@ -1,25 +1,23 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <div class="container" style="padding-top: 2%">
+    <div class="container">
         <div class="row">
             <h1 class="h3 mb-3 font-weight-normal text-center">Commentaires</h1>
             {% for commentaire in article.commentaires %}
-                <div class="container" style="padding-top: 2%">
-                    <div class="row">
-                        <div class="card text-center">
-                            <div class="card-header">
-                                {{ commentaire.auteur.username|default('Anonyme') }}
-                            </div>
-                            <div class="card-body">
-                                <h5 class="card-title">{{ commentaire.contenu | raw}}</h5>
-                            </div>
-                            <div class="card-footer text-muted">
-                                {{ commentaire.date | date("d/m/Y")}}
-                            </div>
-                        </div>
+            <div class="row">
+                <div class="card text-center">
+                    <div class="card-header">
+                        {{ commentaire.auteur.username|default('Anonyme') }}
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-title">{{ commentaire.contenu | raw}}</h5>
+                    </div>
+                    <div class="card-footer text-muted">
+                        {{ commentaire.date | date("d/m/Y")}}
                     </div>
                 </div>
+            </div>
             {% endfor %}
         </div>
     </div>
