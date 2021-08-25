@@ -11,7 +11,7 @@
 Il faut d'abord installer
 
 ```
-Xamp ou Laragon ainsi que PHPMyAdmin, Composer et PHP (en version 7.2 minimum).
+Xamp ou Laragon ainsi qu'une DB MySQL, Composer et PHP (en version 7.2 minimum).
 ```
 
 ### Mise en place du projet
@@ -54,9 +54,7 @@ php bin/console doctrine:fixtures:load
 
 > PHP,
 > HTML,
-> CSS,
-> MySQL
-
+> CSS
 
 # To-do
 - changer le style de login register et padding sur tous les boutons ?
