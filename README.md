@@ -8,14 +8,11 @@
   <summary>Sommaire</summary>
   <ol>
     <li>
-      <a href="#particularités-du-gantt">Préambule : Particularités du Gantt</a>
-    </li>
-    <li>
       <a href="#Installation">Installation</a>
     </li>
     <ul>
         <li>
-            <a href="### Prérequis">Prérequis</a>
+            <a href="# Prérequis">Prérequis</a>
         </li>
     </ul>
     <li>
