@@ -15,7 +15,7 @@
             <a href="#prérequis">Prérequis</a>
         </li>
         <li>
-            <a href="#Mise en place du projet">Mise en place du projet</a>
+            <a href="#mise-en-place-du-projet">Mise en place du projet</a>
         </li>
     </ul>
     <li>
