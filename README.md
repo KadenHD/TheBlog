@@ -4,6 +4,28 @@
     <img src="https://www.promeo-formation.fr/themes/custom/promeo/img/logos/logo_promeo_white.svg" alt="Logo" height="50px"><br>
     <h3 align="center">Projet Symfony - TheBlog </h3>
     
+<details open="open">
+  <summary>Sommaire</summary>
+  <ol>
+    <li>
+      <a href="#particularités-du-gantt">Préambule : Particularités du Gantt</a>
+    </li>
+    <li>
+      <a href="#Installation">Installation</a>
+    </li>
+    <ul>
+        <li>
+            <a href="### Prérequis">Prérequis</a>
+        </li>
+    </ul>
+    <li>
+      <a href="#Technologies">Technologies</a>
+    </li>
+    <li>
+      <a href="#Sources">Sources</a>
+    </li>
+</details>
+    
 # Installation
 
 ### Prérequis
@@ -64,6 +86,6 @@ php bin/console doctrine:fixtures:load
 - let users delete their comments ?
 - add delete button of comment and article on all page where we see them ?
 
-# Sources : 
+# Sources
 - Notre modèle : https://github.com/tvatry/adblangues <br>
 - Une vidéo sur la création de formulaires : https://youtu.be/_cgZheTv-FQ
