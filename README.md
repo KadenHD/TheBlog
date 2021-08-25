@@ -22,7 +22,7 @@
       <a href="#Technologies">Technologies</a>
     </li>
     <li>
-      <a href="#To-doo">To-do</a>
+      <a href="#To-do">To-do</a>
     </li>
     <li>
       <a href="#Sources">Sources</a>
