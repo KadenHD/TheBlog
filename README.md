@@ -12,7 +12,7 @@
     </li>
     <ul>
         <li>
-            <a href="# Prérequis">Prérequis</a>
+            <a href="#prérequis">Prérequis</a>
         </li>
     </ul>
     <li>
