@@ -14,9 +14,15 @@
         <li>
             <a href="#prérequis">Prérequis</a>
         </li>
+        <li>
+            <a href="#Mise en place du projet">Mise en place du projet</a>
+        </li>
     </ul>
     <li>
       <a href="#Technologies">Technologies</a>
+    </li>
+    <li>
+      <a href="#To-doo">To-do</a>
     </li>
     <li>
       <a href="#Sources">Sources</a>
