@@ -57,6 +57,8 @@ php bin/console doctrine:fixtures:load
 > CSS
 
 # To-do
+- Mettre la création de user uniquement pour le rôle (super_admin?) et faire une page de crud sur les users par ce dernier
+- Modifier les fonctions de crud sur le user actuel avec une condition if role_admin etc...
 - changer le style de login register et padding sur tous les boutons ?
 - optimiser les fonctions crud
 - let users delete their comments ?
