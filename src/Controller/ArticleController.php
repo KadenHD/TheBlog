@@ -15,6 +15,7 @@ use Symfony\Component\Routing\Annotation\Route;
 class ArticleController extends AbstractController
 {
     /**
+     * @Route("/", name="home")
      * @Route("/article", name="article_index")
      */
     public function index(ArticleRepository $repository)
@@ -26,8 +27,8 @@ class ArticleController extends AbstractController
     }
 
     /**
-     * @Route("/article/create", name="article_create")
-     * @Route("/article/edit/{id}", name="article_edit")
+     * @Route("/user/article/create", name="article_create")
+     * @Route("/user/article/edit/{id}", name="article_edit")
      */
     public function formArticle(Article $article = null, Request $request, EntityManagerInterface $emi)
     {   
@@ -106,7 +107,7 @@ class ArticleController extends AbstractController
     }
 
     /**
-     * @Route("/article/delete/{id}", name="article_delete", methods={"GET", "DELETE"})
+     * @Route("/user/article/delete/{id}", name="article_delete", methods={"GET", "DELETE"})
      */
     public function deleteArticle(Article $article)
     {

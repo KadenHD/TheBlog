@@ -37,10 +37,4 @@ security:
     access_control:
 
         #Admin only
-        - { path: ^/admin, roles: ROLE_ADMIN }
-        
-        #User only
-        - { path: ^/user, roles: ROLE_USER }
-        - { path: ^/article/create, roles: ROLE_USER }
-        - { path: ^/article/edit, roles: ROLE_USER }
-        - { path: ^/article/delete, roles: ROLE_USER }
+        - { path: ^/user, roles: [ROLE_USER, ROLE_FORMATEUR, ROLE_ADMIN, ROLE_SUPER_ADMIN] }

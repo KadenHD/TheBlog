@@ -6,7 +6,7 @@
         {{ form_row(formUser.username, {'attr': {'value': user.username }}) }}
         {{ form_row(formUser.email, {'attr': {'value': user.email }}) }}
         {{ form_row(formUser.description, {'attr': {'value': user.description }}) }}
-        <button type="submit" class="btn btn-primary" onclick="return confirm('Souhaitez-vous vraiment modifier votre profil ?')">Modifier le profil</button>
+        <button type="submit" class="btn btn-primary" onclick="return confirm('Souhaitez-vous vraiment modifier le profil ?')">Modifier le profil</button>
         {{ form_end(formUser) }}
     </div>
 {% endblock %}

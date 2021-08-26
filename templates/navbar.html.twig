@@ -16,19 +16,39 @@
                         <a class="secondary" id="links" href="/login">Connexion</a>
                         </li>
                         <li>
-                        <a class="secondary" id="links" href="/register">Inscription</a>
+                        <a class="secondary" id="links" href="#">Inscription</a>
                         </li>
-                        {% else %}
+                        {% endif %}
+                        {% if (app.user != null) 
+                            and (app.user.roles == ["ROLE_ADMIN"]
+                            or (app.user.roles == ["ROLE_FORMATEUR"])
+                            or (app.user.roles == ["ROLE_SUPER_ADMIN"])
+                            ) 
+                        %}
                         <li>
-                        <a class="secondary" href="/user">Profil</a>
+                        <a class="secondary" id="links" href="/user">Profil</a>
                         </li>
+                        <li>
+                        <a class="secondary" id="links" href="/user/article/create">Créer un article</a>
+                        </li>
+                        <li>
+                        <a class="secondary" id="links" href="/user/user/create">Créer un utilisateur</a>
+                        </li>
+                        <li>
+                        <a class="secondary" id="links" href="/user/articles">Gestion des articles</a>
+                        </li>
+                        <li>
+                        <a class="secondary" id="links" href="/user/users">Gestion des utilisateurs</a>
+                        </li>
+                        {% endif %}
                     </ul>
                 </div>
+                {% if app.user != null %}
                 <div class="connected">  
                     <p>(Connecté en tant que <b>{{ app.user.username|default('Anonyme')}}</b>)
                     <a class="main" onclick="return confirm('Voulez-vous vraiment vous déconnecter ?')" href="/logout">Disconnect</a></p>
-                    {% endif %}
                 </div>
+                {% endif %}
             </div>
         </div>
     </nav>
