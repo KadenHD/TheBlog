@@ -28,7 +28,10 @@ class UserController extends AbstractController
      */
     public function edit(User $user,Request $request, EntityManagerInterface $emi)
     {
-        if ($user != $this->getUser()) {
+        if (($user != $this->getUser()) 
+            && (($this->getUser()->getRoles() != ["ROLE_SUPER_ADMIN"])
+            && ($this->getUser()->getRoles() != ["ROLE_ADMIN"]))
+        ){
             return $this->redirectToRoute('user_index', ['alert' => "userNotYour"]);
         }
 

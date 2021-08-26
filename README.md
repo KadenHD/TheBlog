@@ -81,9 +81,8 @@ php bin/console doctrine:fixtures:load
 > CSS
 
 # To-do
-- autoriser les admins et super_admins a supprimer les articles des autres
-- autoriser les admins et super a modifier le profil des autres
 - Mettre la création de user uniquement pour le rôle super et admin par le system de routes et controller
+- Mettre dans la création de user un select des roles
 - faire une page de crud sur les users et articles par admin et super
 - Modifier les fonctions de crud sur le user actuel avec une condition if role_admin etc...
 - Récupération de mot de passe par token, mail ou tel

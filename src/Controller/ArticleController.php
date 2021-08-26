@@ -113,7 +113,11 @@ class ArticleController extends AbstractController
     {
         $user = $this->getUser();
         $author = $article->getAuteur();
-        if ($user != $author) {
+
+        if (($user != $author)
+            && (($user->getRoles() != ["ROLE_SUPER_ADMIN"])
+            && ($user->getRoles() != ["ROLE_ADMIN"])
+        )) {
             return $this->redirectToRoute('user_index', ['alert' => "articleNotYour"]);
         }else {
             $emi=$this->getDoctrine()->getManager();
