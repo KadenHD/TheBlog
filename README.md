@@ -85,6 +85,7 @@ php bin/console doctrine:fixtures:load
 - Mettre dans la création de user un select des roles
 - faire une page de crud sur les users et articles par admin et super
 - Modifier les fonctions de crud sur le user actuel avec une condition if role_admin etc...
+- Modifier les fixtures et les séparer en créations discinctes, (admin, super admin et formateur) ainsi qu'un profile de chaque avec mot de passes utilisables
 - Récupération de mot de passe par token, mail ou tel
 - Mise en place du formulaire étudiant
 - changer le style de login register et padding sur tous les boutons ?
