@@ -2,7 +2,8 @@
 <p align="center">
     <img src="https://www.promeo-formation.fr/themes/custom/promeo/img/logos/logo_promeo_white.svg" alt="Logo" height="50px"><br>
     <h3 align="center">Projet Symfony - TheBlog </h3>
-    
+    [![Codacy Badge](https://api.codacy.com/project/badge/Grade/74053c23c5734e3286f85feadf02ecf3)](https://app.codacy.com/gh/KadenHD/TheBlog?               utm_source=github.com&utm_medium=referral&utm_content=KadenHD/TheBlog&utm_campaign=Badge_Grade_Settings)
+        
 <details open="open">
   <summary>Sommaire</summary>
   <ol>
@@ -26,11 +27,9 @@
     <li>
       <a href="#Sources">Sources</a>
     </li>
-</details>
-[![Codacy Badge](https://app.codacy.com/project/badge/Grade/e7fbc698248b401d8a50246d31a8f89f)](https://www.codacy.com/gh/KadenHD/TheBlog/dashboard?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=KadenHD/TheBlog&amp;utm_campaign=Badge_Grade) <br>   
+</details> 
+    
 # Installation
-
-[![Codacy Badge](https://api.codacy.com/project/badge/Grade/74053c23c5734e3286f85feadf02ecf3)](https://app.codacy.com/gh/KadenHD/TheBlog?utm_source=github.com&utm_medium=referral&utm_content=KadenHD/TheBlog&utm_campaign=Badge_Grade_Settings)
 
 ### Prérequis
 
