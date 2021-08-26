@@ -38,7 +38,10 @@ class ArticleController extends AbstractController
 
         // Gestion de Redirections
         $user = $this->getUser();
-        if ($user != $article->getAuteur() && $article->getId() !== null) {
+        if ( ($user != $article->getAuteur()) && ($article->getId() !== null) 
+            && (($user->getRoles() != ["ROLE_SUPER_ADMIN"]) 
+            && ($user->getRoles() != ["ROLE_ADMIN"])
+        )) {
             return $this->redirectToRoute('user_index', ['alert' => "articleNotYour"]);
         }
 
@@ -126,5 +129,16 @@ class ArticleController extends AbstractController
         }
         
         return $this->redirectToRoute('user_index', ['alert' => "articleDeleted"]);
+    }
+    
+    /**
+     * @Route("/user/articles", name="articles_show")
+     */
+    public function showArticles(ArticleRepository $repository)
+    {
+        $articles = $repository->findAll();
+        return $this->render('article/articles.html.twig', [
+            "articles" => $articles
+        ]);
     }
 }

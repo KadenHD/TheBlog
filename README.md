@@ -82,10 +82,8 @@ php bin/console doctrine:fixtures:load
 > CSS
 
 # To-do
-- Mettre la création de user uniquement pour le rôle super et admin par le system de routes et controller
 - Mettre dans la création de user un select des roles
-- faire une page de crud sur les users et articles par admin et super
-- Modifier les fonctions de crud sur le user actuel avec une condition if role_admin etc...
+- faire une page de crud sur les users par admin et super et passant dans le controller tous les users de la bdd
 - Modifier les fixtures et les séparer en créations discinctes, (admin, super admin et formateur) ainsi qu'un profile de chaque avec mot de passes utilisables
 - Récupération de mot de passe par token, mail ou tel
 - Mise en place du formulaire étudiant

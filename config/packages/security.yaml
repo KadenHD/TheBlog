@@ -37,4 +37,4 @@ security:
     access_control:
 
         #Admin only
-        - { path: ^/user, roles: [ROLE_USER, ROLE_FORMATEUR, ROLE_ADMIN, ROLE_SUPER_ADMIN] }
+        - { path: ^/user, roles: [ROLE_FORMATEUR, ROLE_ADMIN, ROLE_SUPER_ADMIN] }

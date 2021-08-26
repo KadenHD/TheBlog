@@ -1,0 +1,35 @@
+{% extends "base.html.twig" %}
+
+{% block title %}Gestion des Articles
+{% endblock %}
+
+{% block body %}
+    {% include "navbar.html.twig" %}
+    <main>
+        <div class="container">
+            <div class="row">
+                <h1 class="h3 mb-3 font-weight-normal text-center">Gestion des Articles</h1>
+                {% for article in articles %}
+                    <div class="col-md-3">
+                        <div class="card">
+                            <img src={{article.image|default("https://via.placeholder.com/150")}} class="card-img-top" alt="...">
+                            <div class="card-body text-center">
+                                <h5 class="card-title">{{article.titre}}</h5>
+                                <div class="text-muted">
+                                    {{article.date | date("d/m/Y")}}
+                                    {% if article.datemodif != null %}
+                                        <br><i>Modifié le : {{article.datemodif | date("d/m/Y")}}</i>
+                                    {% endif %}
+                                </div>
+                                <a href="/article/show/{{article.id}}" class="btn btn-primary">Voir</a>
+                                <a href="/user/article/edit/{{article.id}}" class="btn btn-primary" style="background-color: orange">Modifier</a>
+                                <a href="/user/article/delete/{{article.id}}" onclick="return confirm('Voulez-vous vraiment supprimer cet article ?')" class="btn btn-primary" style="background-color: red">Supprimer</a>
+                            </div>
+                        </div> 
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </main>
+    {% include "footer.html.twig" %}
+{% endblock %}

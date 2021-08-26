@@ -44,7 +44,7 @@
         <div class="container">
             <div class="row">
                 <h1 class="h3 mb-3 font-weight-normal text-center">Mes articles</h1>
-                <a href="/article/create" class="btn btn-primary" style="background-color: green">Créer un nouvel article</a>
+                <a href="/user/article/create" class="btn btn-primary" style="background-color: green">Créer un nouvel article</a>
                 {% for article in user.articles %}
                     <div class="col-md-3">
                         <div class="card">
@@ -58,8 +58,8 @@
                                     {% endif %}
                                 </div>
                                 <a href="/article/show/{{article.id}}" class="btn btn-primary">Voir</a>
-                                <a href="/article/edit/{{article.id}}" class="btn btn-primary" style="background-color: orange">Modifier</a>
-                                <a href="/article/delete/{{article.id}}" onclick="return confirm('Voulez-vous vraiment supprimer cet article ?')" class="btn btn-primary" style="background-color: red">Supprimer</a>
+                                <a href="/user/article/edit/{{article.id}}" class="btn btn-primary" style="background-color: orange">Modifier</a>
+                                <a href="/user/article/delete/{{article.id}}" onclick="return confirm('Voulez-vous vraiment supprimer cet article ?')" class="btn btn-primary" style="background-color: red">Supprimer</a>
                             </div>
                         </div> 
                     </div>

@@ -36,6 +36,11 @@
         <div style="text-align: center;" class="alert alert-success" role="alert">
             Le <b>Profil</b> à bien été <b>Créé</b> !
         </div>
+    {% elseif app.request.get('alert') == 'userCantCreate' %}
+        <div style="text-align: center;" class="alert alert-danger" role="alert">
+            Vous n'avez pas le droit de <b>Créer</b> des <b>Utilisateurs</b> !
+        </div>
 
     {% endif %}
 {% endblock %}
+
