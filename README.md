@@ -27,7 +27,7 @@
       <a href="#Sources">Sources</a>
     </li>
 </details>
-    
+[![Codacy Badge](https://app.codacy.com/project/badge/Grade/e7fbc698248b401d8a50246d31a8f89f)](https://www.codacy.com/gh/KadenHD/TheBlog/dashboard?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=KadenHD/TheBlog&amp;utm_campaign=Badge_Grade)    
 # Installation
 
 ### Prérequis
