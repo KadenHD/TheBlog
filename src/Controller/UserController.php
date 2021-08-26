@@ -4,6 +4,7 @@ namespace App\Controller;
 
 use App\Entity\User;
 use App\Form\UserFormType;
+use App\Repository\UserRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -49,6 +50,17 @@ class UserController extends AbstractController
         return $this->render('user/edit.html.twig', [
             "user" => $user,
             "formUser" => $form->createView()
+        ]);
+    }
+
+    /**
+     * @Route("/user/users", name="users_show")
+     */
+    public function showUsers(UserRepository $repository)
+    {
+        $users = $repository->findAll();
+        return $this->render('user/users.html.twig', [
+            "users" => $users
         ]);
     }
 }

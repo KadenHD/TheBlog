@@ -9,14 +9,14 @@
                 <div id="links">
                     <ul>
                         <li>
-                        <a class="main" id="links" href="/article">Home</a>
+                            <a class="main" id="links" href="/article">Home</a>
                         </li>
                         {% if app.user == null %}
                         <li>
-                        <a class="secondary" id="links" href="/login">Connexion</a>
+                            <a class="secondary" id="links" href="/login">Connexion</a>
                         </li>
                         <li>
-                        <a class="secondary" id="links" href="#">Inscription</a>
+                            <a class="secondary" id="links" href="#">Inscription</a>
                         </li>
                         {% endif %}
                         {% if (app.user != null) 
@@ -26,19 +26,19 @@
                             ) 
                         %}
                         <li>
-                        <a class="secondary" id="links" href="/user">Profil</a>
+                            <a class="secondary" id="links" href="/user">Profil</a>
                         </li>
                         <li>
-                        <a class="secondary" id="links" href="/user/article/create">Créer un article</a>
+                            <a class="secondary" id="links" href="/user/article/create">Créer un article</a>
                         </li>
                         <li>
-                        <a class="secondary" id="links" href="/user/user/create">Créer un utilisateur</a>
+                            <a class="secondary" id="links" href="/user/user/create">Créer un utilisateur</a>
                         </li>
                         <li>
-                        <a class="secondary" id="links" href="/user/articles">Gestion des articles</a>
+                            <a class="secondary" id="links" href="/user/articles">Gestion des articles</a>
                         </li>
                         <li>
-                        <a class="secondary" id="links" href="/user/users">Gestion des utilisateurs</a>
+                            <a class="secondary" id="links" href="/user/users">Gestion des utilisateurs</a>
                         </li>
                         {% endif %}
                     </ul>

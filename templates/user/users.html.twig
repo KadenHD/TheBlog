@@ -1,0 +1,49 @@
+{% extends "base.html.twig" %}
+
+{% block title %}Gestion des Utilisateurs
+{% endblock %}
+
+{% block body %}
+    {% include "navbar.html.twig" %}
+    <main>
+        <div class="container">
+            <div class="row">
+                <div class="w3-padding w3-white notranslate" style="width:100%">
+                    <div style="width:100%">
+                        <input class="form-control" id="myInput" type="text" placeholder="Chercher un utilisateur...">
+                        <br>
+                        <table class="table table-bordered table-striped">
+                            <thead>
+                                <tr>
+                                    <th>Identifiant</th>
+                                    <th>Nom</th>
+                                    <th>Email</th>
+                                    <th>Date de création</th>
+                                    <th>Rôle</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody id="myTable">
+                                {% for user in users %}
+                                <tr>
+                                    <td>{{user.id}}</td>
+                                    <td>{{user.username}}</td>
+                                    <td>{{user.email}}</td>
+                                    <td>{{user.datecreation | date("d/m/Y")}}</td>
+                                    {% for role in user.roles %}
+                                    <td>{{role}}</td>
+                                    {% endfor %}
+                                    <td class="text-center">
+                                        <a href="/user/edit/{{user.id}}" class="btn btn-primary" style="background-color: orange">Modifier</a>
+                                    </td>
+                                </tr>
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                    </div> 
+                </div>
+            </div>
+        </div> 
+    </main>
+    {% include "footer.html.twig" %}
+{% endblock %}
