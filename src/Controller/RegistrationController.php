@@ -16,9 +16,13 @@ class RegistrationController extends AbstractController
      * @Route("/user/user/create", name="app_register")
      */
     public function register(Request $request, UserPasswordEncoderInterface $passwordEncoder): Response
-    {
-        if (($this->getUser()->getRoles() == ["ROLE_SUPER_ADMIN"]) || ($this->getUser()->getRoles() == ["ROLE_ADMIN"]))
+    {   
+        if (($this->getUser()->getRoles() != ["ROLE_SUPER_ADMIN"])
+        && ($this->getUser()->getRoles() != ["ROLE_ADMIN"]))
         {
+            return $this->redirectToRoute('user_index', ['alert' => "userCantCreate"]);
+        }
+    
             $user = new User();
             $form = $this->createForm(RegistrationFormType::class, $user);
             $form->handleRequest($request);
@@ -47,9 +51,5 @@ class RegistrationController extends AbstractController
             return $this->render('registration/register.html.twig', [
                 'registrationForm' => $form->createView(),
             ]);
-            
-        }else {
-            return $this->redirectToRoute('user_index', ['alert' => "userCantCreate"]);
-        }
     }
 }

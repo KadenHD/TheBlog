@@ -83,7 +83,6 @@ php bin/console doctrine:fixtures:load
 
 # To-do
 - Mettre dans la création de user un select des roles
-- faire une page de crud sur les users par admin et super et passant dans le controller tous les users de la bdd
 - Modifier les fixtures et les séparer en créations discinctes, (admin, super admin et formateur) ainsi qu'un profile de chaque avec mot de passes utilisables
 - Récupération de mot de passe par token, mail ou tel
 - Mise en place du formulaire étudiant

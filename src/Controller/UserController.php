@@ -58,6 +58,12 @@ class UserController extends AbstractController
      */
     public function showUsers(UserRepository $repository)
     {
+        if (($this->getUser()->getRoles() != ["ROLE_SUPER_ADMIN"])
+        && ($this->getUser()->getRoles() != ["ROLE_ADMIN"]))
+        {
+            return $this->redirectToRoute('user_index', ['alert' => "noAccess"]);
+        }
+
         $users = $repository->findAll();
         return $this->render('user/users.html.twig', [
             "users" => $users

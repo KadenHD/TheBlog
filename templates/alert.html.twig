@@ -40,7 +40,10 @@
         <div style="text-align: center;" class="alert alert-danger" role="alert">
             Vous n'avez pas le droit de <b>Créer</b> des <b>Utilisateurs</b> !
         </div>
-
+    {% elseif app.request.get('alert') == 'noAccess' %}
+        <div style="text-align: center;" class="alert alert-danger" role="alert">
+            Vous n'avez pas le droit d'<b>Accès</b> à cette <b>Page</b> !
+        </div>
     {% endif %}
 {% endblock %}
 
