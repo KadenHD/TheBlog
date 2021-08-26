@@ -46,7 +46,7 @@
                 {% if app.user != null %}
                 <div class="connected">  
                     <p>(Connecté en tant que <b>{{ app.user.username|default('Anonyme')}}</b>)
-                    <a class="main" onclick="return confirm('Voulez-vous vraiment vous déconnecter ?')" href="/logout">Disconnect</a></p>
+                    <a class="main" onclick="return confirm('Voulez-vous vraiment vous déconnecter ?')" href="/logout">Déconnexion</a></p>
                 </div>
                 {% endif %}
             </div>
