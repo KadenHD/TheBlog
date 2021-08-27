@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}S'inscrire{% endblock %}
+{% block title %}Création d'Utilisateur{% endblock %}
 
 {% block body %}
 
@@ -16,6 +16,17 @@
                 <h1 class="h3 mb-3 font-weight-normal text-center">Créer un utilisateur</h1>
                 <div class="card">
                     {{ form_start(registrationForm) }}
+                        <label>Role</label>
+                        <select name="roles" class="form-control">
+                            <option value="formateur">Formateur</option>
+                            <option value="responsable">Responsable de section</option>
+                            <option value="assistant">Assistant</option>
+                            {% if (app.user.roles == ["ROLE_SUPER_ADMIN"] ) %}
+                                <option value="admin">Admin</option>
+                                <option value="super">Super Admin</option>
+                            {% endif %}
+                            
+                        </select>
                         {{ form_row(registrationForm.username, {
                             label: 'Nom'
                         }) }}

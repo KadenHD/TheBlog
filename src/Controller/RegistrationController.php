@@ -29,7 +29,16 @@ class RegistrationController extends AbstractController
     
             if ($form->isSubmitted() && $form->isValid()) {
                 $user->setDescription('');
-                $user->setEmail($form->get('email')->getData());
+
+                //Select option role
+                $roles = $request->request->get('roles');
+                if ($roles == "formateur") { $role = ["ROLE_FORMATEUR"]; }
+                elseif ($roles == "responsable") { $role = ["ROLE_RESPONSABLE"]; }
+                elseif ($roles == "assistant") { $role = ["ROLE_ASSISTANT"]; }
+                elseif ($roles == "admin") { $role = ["ROLE_ADMIN"]; }
+                elseif ($roles == "super") { $role = ["ROLE_SUPER_ADMIN"]; }
+                $user->setRoles($role);
+
                 // encode the plain password
                 $user->setPassword(
                     $passwordEncoder->encodePassword(
@@ -38,7 +47,6 @@ class RegistrationController extends AbstractController
                     ),
                     $user->setDateCreation(new \DateTime())
                 );
-                $user->setRoles(['ROLE_USER']);
     
                 $entityManager = $this->getDoctrine()->getManager();
                 $entityManager->persist($user);
