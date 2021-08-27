@@ -82,7 +82,6 @@ php bin/console doctrine:fixtures:load
 > CSS
 
 # To-do
-- Modifier les fixtures et les séparer en créations discinctes, (admin, super admin et formateur) ainsi qu'un profile de chaque avec mot de passes utilisables
 - Récupération de mot de passe par token, mail ou tel
 - Mise en place du formulaire étudiant
 - création édition et suppresion de questionnaires
