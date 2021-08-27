@@ -39,6 +39,12 @@ Il faut d'abord installer
 Xamp ou Laragon ainsi qu'une DB MySQL, Composer et PHP (en version 7.2 minimum).
 ```
 
+S'incrire sur le site Mailtrap pour la réception de mails
+    
+```
+https://mailtrap.io/
+```
+    
 ### Mise en place du projet
 
 Cloner le projet sur la machine
@@ -53,8 +59,14 @@ Ensuite dans le projet
 composer install
 ```
 
-Editer le fichier .env puis
+Editer dans le fichier .env l'url de la DB ainsi que rajouter la ligne
 
+```
+MAILER_DSN=smtp://<i> url fournit par Mailtrap </i>    
+```
+    
+Ensuite    
+    
 ```
 php bin/console doctrine:schema:create
 ```
