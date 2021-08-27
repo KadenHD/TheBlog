@@ -9,57 +9,60 @@
         <div class="container">
             <div class="row">
                 <h1 class="h3 mb-3 font-weight-normal text-center">Modifier mes informations</h1>
-                <div class="w3-padding w3-white notranslate" style="width:100%">
-                    <div style="width:100%">
-                        <input class="form-control" id="myInput" type="text" placeholder="Chercher un utilisateur...">
-                        <br>
-                        <table class="table table-bordered table-striped">
-                            <thead>
-                                <tr>
-                                    <th>Identifiant</th>
-                                    <th>Nom</th>
-                                    <th>Email</th>
-                                    <th>Date de création</th>
-                                    <th>Rôle</th>
-                                    <th>Actions</th>
-                                </tr>
-                            </thead>
-                            <tbody id="myTable">
-                                {% for user in users %}
-                                <tr>
-                                    <td>{{user.id}}</td>
-                                    <td>{{user.username}}</td>
-                                    <td>{{user.email}}</td>
-                                    <td>{{user.datecreation | date("d/m/Y")}}</td>
-                                    {% for role in user.roles %}
-                                    <td>                        
-                                        {% if (role == "ROLE_FORMATEUR") %}
-                                            Formateur
-                                        {% elseif (role == "ROLE_RESPONSABLE") %}
-                                            Responsable de formation
-                                        {% elseif (role == "ROLE_ASSISTANT") %}
-                                            Assistant
-                                        {% elseif (role == "ROLE_ADMIN") %}
-                                            Admin
-                                        {% elseif (role == "ROLE_SUPER_ADMIN") %}
-                                            Super Admin
+                <div class="card">
+                    <div class="w3-padding w3-white notranslate" style="width:100%">
+                        <div style="width:100%">
+                            <br>
+                            <input class="form-control" id="myInput" type="text" placeholder="Chercher un utilisateur...">
+                            <br>
+                            <table class="table table-bordered table-striped">
+                                <thead>
+                                    <tr>
+                                        <th>Identifiant</th>
+                                        <th>Nom</th>
+                                        <th>Email</th>
+                                        <th>Date de création</th>
+                                        <th>Rôle</th>
+                                        <th>Actions</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="myTable">
+                                    {% for user in users %}
+                                    <tr>
+                                        <td>{{user.id}}</td>
+                                        <td>{{user.username}}</td>
+                                        <td>{{user.email}}</td>
+                                        <td>{{user.datecreation | date("d/m/Y")}}</td>
+                                        {% for role in user.roles %}
+                                        <td>                        
+                                            {% if (role == "ROLE_FORMATEUR") %}
+                                                Formateur
+                                            {% elseif (role == "ROLE_RESPONSABLE") %}
+                                                Responsable de formation
+                                            {% elseif (role == "ROLE_ASSISTANT") %}
+                                                Assistant
+                                            {% elseif (role == "ROLE_ADMIN") %}
+                                                Admin
+                                            {% elseif (role == "ROLE_SUPER_ADMIN") %}
+                                                Super Admin
+                                            {% else %}
+                                                <i style="color: grey;">Vide</i>
+                                            {% endif %}
+                                        </td>
+                                        <td class="text-center">
+                                        {% if ( (role == "ROLE_ADMIN" or role == "ROLE_SUPER_ADMIN") and (user != app.user) ) %}
+                                            <i style="color: grey;">Pas de droits</i>
                                         {% else %}
-                                            <i style="color: grey;">Vide</i>
+                                            <a href="/user/edit/{{user.id}}" class="btn btn-primary" style="background-color: orange">Modifier</a>
                                         {% endif %}
-                                    </td>
-                                    <td class="text-center">
-                                    {% if ( (role == "ROLE_ADMIN" or role == "ROLE_SUPER_ADMIN") and (user != app.user) ) %}
-                                        <i style="color: grey;">Pas de droits</i>
-                                    {% else %}
-                                        <a href="/user/edit/{{user.id}}" class="btn btn-primary" style="background-color: orange">Modifier</a>
-                                    {% endif %}
-                                    </td>
+                                        </td>
+                                        {% endfor %}
+                                    </tr>
                                     {% endfor %}
-                                </tr>
-                                {% endfor %}
-                            </tbody>
-                        </table>
-                    </div> 
+                                </tbody>
+                            </table>
+                        </div> 
+                    </div>
                 </div>
             </div>
         </div> 

@@ -8,10 +8,9 @@
     {% include "navbar.html.twig" %}
     <main>
         <div class="container">
-            <div class="row">
-                <a href="/article" class="btn btn-primary" style="background-color: red">Retour</a>
-                <div class="card text-center">
-                    <h1>{{article.titre}}</h1>
+            <div class="row text-center">
+                <h1 class="h3 mb-3 font-weight-normal text-center">{{article.titre}}</h1>
+                <div class="card">
                     <div style="align-text: center;">
                         <img src={{article.image|default("https://via.placeholder.com/150")}} style="width: 500px;" class="card-img-top" alt="...">
                     </div>

@@ -7,8 +7,10 @@
             <div class="card text-center">
                     {{ form_start(formCommentaire) }}
                     {{ form_row(formCommentaire.contenu) }}
+                    <br>
                     <button type="submit" class="btn btn-primary" onclick="return confirm('Souhaitez-vous vraiment envoyer ce Commentaire ?')">Envoyer</button>
                     {{ form_end(formCommentaire) }}
+                    <br>
             </div>
         </div>
     </div>

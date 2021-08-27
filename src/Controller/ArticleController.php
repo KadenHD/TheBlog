@@ -61,6 +61,7 @@ class ArticleController extends AbstractController
 
             $emi->persist($article);
             $emi->flush();
+
             return $this->redirectToRoute('article_show', [
                 'id' => $article->getId(),
                 'alert' => $alert
@@ -128,7 +129,11 @@ class ArticleController extends AbstractController
             $emi->flush();
         }
         
-        return $this->redirectToRoute('user_index', ['alert' => "articleDeleted"]);
+        $route = 'user_index';
+        if ($author != $user ) {
+            $route = 'articles_show';
+        }
+        return $this->redirectToRoute($route, ['alert' => "articleDeleted"]);
     }
     
     /**

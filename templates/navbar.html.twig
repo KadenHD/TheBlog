@@ -42,9 +42,9 @@
                 </div>
                 {% if app.user != null %}
                 <div class="connected">  
-                    <p>(Connecté en tant que <b>{{ app.user.username|default('Anonyme')}}</b>)</p>
+                    <small><b>{{ app.user.username|default('Anonyme')}}</b></small>
                     <a class="main" onclick="return confirm('Voulez-vous vraiment vous déconnecter ?')" href="/logout">
-                        <i class="fa fa-sign-out"></i>
+                        <i class="fa fa-sign-out fa-2x"></i>
                     </a>
                 </div>
                 {% endif %}

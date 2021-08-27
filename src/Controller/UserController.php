@@ -58,7 +58,12 @@ class UserController extends AbstractController
             $user->setDateModif(new \DateTime());
             $emi->persist($user);
             $emi->flush();
-            return $this->redirectToRoute('user_index', ['alert' => "userEdited"]);
+
+            $route = 'user_index';
+            if ($user->getId() != $this->getUser()->getId()) {
+                $route = 'users_show';
+            }
+            return $this->redirectToRoute($route, ['alert' => "userEdited"]);
         }
 
         return $this->render('user/edit.html.twig', [
@@ -77,6 +82,7 @@ class UserController extends AbstractController
         {
             return $this->redirectToRoute('user_index', ['alert' => "noAccess"]);
         }
+
         $users = $repository->findAll();
         return $this->render('user/users.html.twig', [
             "users" => $users

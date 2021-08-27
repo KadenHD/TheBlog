@@ -11,9 +11,8 @@
         <div class="container">
             <div class="row">
                 <h1 class="h3 mb-3 font-weight-normal text-center">Informations de compte</h1>
-                    <div class="card text-center">
-                        <u>Nom :</u> {{ app.user.username }}
-                    </div>
+                <div class="card text-center">
+                    <b>{{ app.user.username }}</b>
                     <div class="card text-center">
                         <u>Rôle :</u>                     
                         {% if (app.user.roles == ["ROLE_FORMATEUR"]) %}
@@ -43,7 +42,10 @@
                             {{ app.user.datemodif | date("d/m/Y") }}
                     </div>
                     {% endif %}
+                    <br>
                     <a href="/user/edit/{{app.user.id}}" class="btn btn-primary" style="background-color: orange">Modifier mes Informations</a>
+                    <br>
+                </div>
             </div>
         </div>
 
