@@ -59,10 +59,10 @@ Ensuite dans le projet
 composer install
 ```
 
-Editer dans le fichier .env l'url de la DB ainsi que rajouter la ligne
+Editer dans le fichier .env l'url de la DB ainsi que rajouter les identifiants de Mailtrap
 
 ```
-MAILER_DSN=smtp://<i> url fournit par Mailtrap </i>    
+MAILER_DSN=smtp://*MailtrapURL*  
 ```
     
 Ensuite    
@@ -95,7 +95,7 @@ php bin/console doctrine:fixtures:load
 
 # To-do
 
-- Rajouter une introduction et exprimer le besoin dans le readme
+- Rajouter une introduction et exprimer le besoin du projet dans le readme
 - Mise en place du formulaire étudiant
 - création édition et suppresion de questionnaires
 - optimiser les fonctions crud
