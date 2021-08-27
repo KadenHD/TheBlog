@@ -95,7 +95,6 @@ php bin/console doctrine:fixtures:load
 
 # To-do
 
-- changer le style de login register et padding sur tous les boutons ? Faire le style des pages de mails-recup
 - Mise en place du formulaire étudiant
 - création édition et suppresion de questionnaires
 - optimiser les fonctions crud

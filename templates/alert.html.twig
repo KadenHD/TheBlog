@@ -48,5 +48,9 @@
         <div style="text-align: center;" class="alert alert-danger" role="alert">
             Vous n'avez pas la <b>Permission</b> de <b>Modifier</b> cet <b>Utilisateur</b> !
         </div>
+    {% elseif app.request.get('alert') == 'resetPassword' %}
+        <div style="text-align: center;" class="alert alert-success" role="alert">
+            Le <b>Mot de passe</b> à bien été <b>Réinitialisé</b> !
+        </div>
     {% endif %}
 {% endblock %}
