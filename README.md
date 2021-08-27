@@ -82,7 +82,6 @@ php bin/console doctrine:fixtures:load
 > CSS
 
 # To-do
-- Récupération de mot de passe par token, mail ou tel
 - Mise en place du formulaire étudiant
 - création édition et suppresion de questionnaires
 - changer le style de login register et padding sur tous les boutons ?
