@@ -102,6 +102,6 @@ php bin/console doctrine:fixtures:load
 
 # Sources
 
-- Notre modèle : https://github.com/tvatry/adblangues <br>
-- Vidéo sur la création de formulaires : https://youtu.be/_cgZheTv-FQ <br>
+- Notre modèle : https://github.com/tvatry/adblangues
+- Vidéo sur la création de formulaires : https://youtu.be/_cgZheTv-FQ
 - Vidéo sur la réinitialisation de mots de passe par token : https://youtu.be/9RA3yAp4xw8?list=LL
