@@ -16,10 +16,16 @@
                     </div>
                     <div class="card text-center">
                         <u>Rôle :</u>                     
-                        {% if app.user.roles == ["ROLE_USER"] %}
-                            Utilisateur
-                        {% elseif app.user.roles == null %}
-                            <i>null</i>
+                        {% if (app.user.roles == ["ROLE_FORMATEUR"]) %}
+                            Formateur
+                        {% elseif (app.user.roles == ["ROLE_RESPONSABLE"]) %}
+                            Responsable de formation
+                        {% elseif (app.user.roles == ["ROLE_ASSISTANT"]) %}
+                            Assistant
+                        {% elseif (app.user.roles == ["ROLE_ADMIN"]) %}
+                            Admin
+                        {% elseif (app.user.roles == ["ROLE_SUPER_ADMIN"]) %}
+                            Super Admin
                         {% endif %}
                     </div>
                     <div class="card text-center">

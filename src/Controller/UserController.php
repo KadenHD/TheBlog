@@ -29,11 +29,25 @@ class UserController extends AbstractController
      */
     public function edit(User $user,Request $request, EntityManagerInterface $emi)
     {
+        //Edit permissions
+        //Let only admin and super edit profiles
         if (($user != $this->getUser()) 
             && (($this->getUser()->getRoles() != ["ROLE_SUPER_ADMIN"])
             && ($this->getUser()->getRoles() != ["ROLE_ADMIN"]))
         ){
             return $this->redirectToRoute('user_index', ['alert' => "userNotYour"]);
+        }
+        //Let only super edit super
+        if (($user->getRoles() == ["ROLE_SUPER_ADMIN"]) && ($user != $this->getUser())
+        && (($this->getUser()->getRoles() != ["ROLE_SUPER_ADMIN"]))
+        ){
+        return $this->redirectToRoute('user_index', ['alert' => "userNoPermissions"]);
+        }
+        //Dont let admin edit admin
+        if (($user->getRoles() == ["ROLE_ADMIN"]) && ($user != $this->getUser())
+        && (($this->getUser()->getRoles() != ["ROLE_SUPER_ADMIN"]))
+        ){
+        return $this->redirectToRoute('user_index', ['alert' => "userNoPermissions"]);
         }
 
         $form = $this->createForm(UserFormType::class, $user);
@@ -63,7 +77,6 @@ class UserController extends AbstractController
         {
             return $this->redirectToRoute('user_index', ['alert' => "noAccess"]);
         }
-
         $users = $repository->findAll();
         return $this->render('user/users.html.twig', [
             "users" => $users

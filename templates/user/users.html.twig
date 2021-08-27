@@ -31,11 +31,29 @@
                                     <td>{{user.email}}</td>
                                     <td>{{user.datecreation | date("d/m/Y")}}</td>
                                     {% for role in user.roles %}
-                                    <td>{{role}}</td>
-                                    {% endfor %}
-                                    <td class="text-center">
-                                        <a href="/user/edit/{{user.id}}" class="btn btn-primary" style="background-color: orange">Modifier</a>
+                                    <td>                        
+                                        {% if (role == "ROLE_FORMATEUR") %}
+                                            Formateur
+                                        {% elseif (role == "ROLE_RESPONSABLE") %}
+                                            Responsable de formation
+                                        {% elseif (role == "ROLE_ASSISTANT") %}
+                                            Assistant
+                                        {% elseif (role == "ROLE_ADMIN") %}
+                                            Admin
+                                        {% elseif (role == "ROLE_SUPER_ADMIN") %}
+                                            Super Admin
+                                        {% else %}
+                                            <i style="color: grey;">Vide</i>
+                                        {% endif %}
                                     </td>
+                                    <td class="text-center">
+                                    {% if ( (role == "ROLE_ADMIN" or role == "ROLE_SUPER_ADMIN") and (user != app.user) ) %}
+                                        <i style="color: grey;">Pas de droits</i>
+                                    {% else %}
+                                        <a href="/user/edit/{{user.id}}" class="btn btn-primary" style="background-color: orange">Modifier</a>
+                                    {% endif %}
+                                    </td>
+                                    {% endfor %}
                                 </tr>
                                 {% endfor %}
                             </tbody>

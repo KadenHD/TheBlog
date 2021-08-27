@@ -36,5 +36,5 @@ security:
     # Note: Only the *first* access control that matches will be used
     access_control:
 
-        #Admin only
-        - { path: ^/user, roles: [ROLE_FORMATEUR, ROLE_ADMIN, ROLE_SUPER_ADMIN] }
+        #Restrictions
+        - { path: ^/user, roles: [ROLE_FORMATEUR, ROLE_RESPONSABLE, ROLE_ASSISTANT, ROLE_ADMIN, ROLE_SUPER_ADMIN] }

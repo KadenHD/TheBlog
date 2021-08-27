@@ -44,6 +44,9 @@
         <div style="text-align: center;" class="alert alert-danger" role="alert">
             Vous n'avez pas le droit d'<b>Accès</b> à cette <b>Page</b> !
         </div>
+    {% elseif app.request.get('alert') == 'userNoPermissions' %}
+        <div style="text-align: center;" class="alert alert-danger" role="alert">
+            Vous n'avez pas la <b>Permission</b> de <b>Modifier</b> cet <b>Utilisateur</b> !
+        </div>
     {% endif %}
 {% endblock %}
-
