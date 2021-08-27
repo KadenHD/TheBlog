@@ -4,13 +4,20 @@ namespace App\DataFixtures;
 
 use App\Entity\Article;
 use App\Entity\User;
-use DateTime;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Persistence\ObjectManager;
 use Faker\Factory;
+use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 
 class AppFixtures extends Fixture
 {
+    private $encoder;
+
+    public function __construct( UserPasswordEncoderInterface $encoder)
+    {
+        $this->encoder = $encoder;
+    }
+
     public function load(ObjectManager $manager)
     {
 
@@ -20,7 +27,7 @@ class AppFixtures extends Fixture
         for($i=0;$i<5;$i++){
             $user = new User();
             $user->setUsername($faker->userName())
-                ->setPassword($faker->password())
+                ->setPassword($this->encoder->encodePassword($user, $faker->password()))
                 ->setEmail($faker->email())
                 ->setDateCreation($faker->dateTimeBetween('-3 months'))
                 ->setDateModif($faker->dateTimeBetween('-3 months'))
@@ -43,7 +50,7 @@ class AppFixtures extends Fixture
         for($i=0;$i<5;$i++){
             $user = new User();
             $user->setUsername($faker->userName())
-                ->setPassword($faker->password())
+                ->setPassword($this->encoder->encodePassword($user, $faker->password()))
                 ->setEmail($faker->email())
                 ->setDateCreation($faker->dateTimeBetween('-3 months'))
                 ->setDateModif($faker->dateTimeBetween('-3 months'))
@@ -66,7 +73,7 @@ class AppFixtures extends Fixture
         for($i=0;$i<5;$i++){
             $user = new User();
             $user->setUsername($faker->userName())
-                ->setPassword($faker->password())
+                ->setPassword($this->encoder->encodePassword($user, $faker->password()))
                 ->setEmail($faker->email())
                 ->setDateCreation($faker->dateTimeBetween('-3 months'))
                 ->setDateModif($faker->dateTimeBetween('-3 months'))
@@ -89,7 +96,7 @@ class AppFixtures extends Fixture
         for($i=0;$i<5;$i++){
             $user = new User();
             $user->setUsername($faker->userName())
-                ->setPassword($faker->password())
+                ->setPassword($this->encoder->encodePassword($user, $faker->password()))
                 ->setEmail($faker->email())
                 ->setDateCreation($faker->dateTimeBetween('-3 months'))
                 ->setDateModif($faker->dateTimeBetween('-3 months'))
@@ -112,7 +119,7 @@ class AppFixtures extends Fixture
         for($i=0;$i<5;$i++){
             $user = new User();
             $user->setUsername($faker->userName())
-                ->setPassword($faker->password())
+                ->setPassword($this->encoder->encodePassword($user, $faker->password()))
                 ->setEmail($faker->email())
                 ->setDateCreation($faker->dateTimeBetween('-3 months'))
                 ->setDateModif($faker->dateTimeBetween('-3 months'))
@@ -135,7 +142,7 @@ class AppFixtures extends Fixture
         for($i=0;$i<1;$i++){
             $user = new User();
             $user->setUsername("formateur")
-                ->setPassword("formateur")
+                ->setPassword($this->encoder->encodePassword($user, 'formateur'))
                 ->setEmail("formateur@formateur.formateur")
                 ->setDateCreation($faker->dateTimeBetween('-3 months'))
                 ->setDateModif($faker->dateTimeBetween('-3 months'))
@@ -147,7 +154,7 @@ class AppFixtures extends Fixture
         for($i=0;$i<1;$i++){
             $user = new User();
             $user->setUsername("admin")
-                ->setPassword("admin")
+                ->setPassword($this->encoder->encodePassword($user, 'admin'))
                 ->setEmail("admin@admin.admin")
                 ->setDateCreation($faker->dateTimeBetween('-3 months'))
                 ->setDateModif($faker->dateTimeBetween('-3 months'))
@@ -159,7 +166,7 @@ class AppFixtures extends Fixture
         for($i=0;$i<1;$i++){
             $user = new User();
             $user->setUsername("sadmin")
-                ->setPassword("sadmin")
+                ->setPassword($this->encoder->encodePassword($user, 'sadmin'))
                 ->setEmail("sadmin@sadmin.sadmin")
                 ->setDateCreation($faker->dateTimeBetween('-3 months'))
                 ->setDateModif($faker->dateTimeBetween('-3 months'))
