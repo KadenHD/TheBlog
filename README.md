@@ -95,6 +95,7 @@ php bin/console doctrine:fixtures:load
 
 # To-do
 
+- Rajouter une introduction et exprimer le besoin dans le readme
 - Mise en place du formulaire étudiant
 - création édition et suppresion de questionnaires
 - optimiser les fonctions crud
