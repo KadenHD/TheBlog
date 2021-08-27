@@ -31,7 +31,7 @@
 # Installation
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/74053c23c5734e3286f85feadf02ecf3)](https://app.codacy.com/gh/KadenHD/TheBlog?utm_source=github.com&utm_medium=referral&utm_content=KadenHD/TheBlog&utm_campaign=Badge_Grade_Settings)
 
-### Prérequis
+### <b>Prérequis</b>
 
 Il faut d'abord installer
 
