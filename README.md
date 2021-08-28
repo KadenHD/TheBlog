@@ -102,11 +102,10 @@ php bin/console doctrine:fixtures:load
 
 # To-do
 
-- Optimiser les fixtures en créant une fonction pour persist le $user
-- Rajouter une introduction et exprimer le besoin du projet dans le readme
-- Régler les issues du projet (grace à codacy)
 - Mise en place du formulaire étudiant
 - création édition et suppresion de questionnaires
+
+- Régler les issues du projet (grace à codacy)
 - optimiser les fonctions crud
 
 # Sources

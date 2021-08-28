@@ -31,9 +31,8 @@ class AppFixtures extends Fixture
                 ->setEmail($faker->email())
                 ->setDateCreation($faker->dateTimeBetween('-3 months'))
                 ->setDateModif($faker->dateTimeBetween('-3 months'))
-                ->setDescription($faker->text($maxNbChars = 200));
-            $user->setRoles(['ROLE_FORMATEUR']);
-
+                ->setDescription($faker->text($maxNbChars = 200))
+                ->setRoles(['ROLE_FORMATEUR']);
             $manager->persist($user);
             
             $article = new Article();
@@ -42,7 +41,6 @@ class AppFixtures extends Fixture
                 ->setContenu($faker->sentence(10,true))
                 ->setDate($faker->dateTimeBetween('-3 months'))
                 ->setImage($faker->imageUrl($width = 150, $height = 150));
-
             $manager->persist($article);
         }
 
@@ -54,9 +52,8 @@ class AppFixtures extends Fixture
                 ->setEmail($faker->email())
                 ->setDateCreation($faker->dateTimeBetween('-3 months'))
                 ->setDateModif($faker->dateTimeBetween('-3 months'))
-                ->setDescription($faker->text($maxNbChars = 200));
-            $user->setRoles(['ROLE_RESPONSABLE']);
-
+                ->setDescription($faker->text($maxNbChars = 200))
+                ->setRoles(['ROLE_RESPONSABLE']);
             $manager->persist($user);
             
             $article = new Article();
@@ -65,7 +62,6 @@ class AppFixtures extends Fixture
                 ->setContenu($faker->sentence(10,true))
                 ->setDate($faker->dateTimeBetween('-3 months'))
                 ->setImage($faker->imageUrl($width = 150, $height = 150));
-
             $manager->persist($article);
         }
 
@@ -77,9 +73,8 @@ class AppFixtures extends Fixture
                 ->setEmail($faker->email())
                 ->setDateCreation($faker->dateTimeBetween('-3 months'))
                 ->setDateModif($faker->dateTimeBetween('-3 months'))
-                ->setDescription($faker->text($maxNbChars = 200));
-            $user->setRoles(['ROLE_ASSISTANT']);
-
+                ->setDescription($faker->text($maxNbChars = 200))
+                ->setRoles(['ROLE_ASSISTANT']);
             $manager->persist($user);
             
             $article = new Article();
@@ -88,7 +83,6 @@ class AppFixtures extends Fixture
                 ->setContenu($faker->sentence(10,true))
                 ->setDate($faker->dateTimeBetween('-3 months'))
                 ->setImage($faker->imageUrl($width = 150, $height = 150));
-
             $manager->persist($article);
         }
 
@@ -100,9 +94,8 @@ class AppFixtures extends Fixture
                 ->setEmail($faker->email())
                 ->setDateCreation($faker->dateTimeBetween('-3 months'))
                 ->setDateModif($faker->dateTimeBetween('-3 months'))
-                ->setDescription($faker->text($maxNbChars = 200));
-            $user->setRoles(['ROLE_ADMIN']);
-
+                ->setDescription($faker->text($maxNbChars = 200))
+                ->setRoles(['ROLE_ADMIN']);
             $manager->persist($user);
             
             $article = new Article();
@@ -111,7 +104,6 @@ class AppFixtures extends Fixture
                 ->setContenu($faker->sentence(10,true))
                 ->setDate($faker->dateTimeBetween('-3 months'))
                 ->setImage($faker->imageUrl($width = 150, $height = 150));
-
             $manager->persist($article);
         }
 
@@ -123,9 +115,8 @@ class AppFixtures extends Fixture
                 ->setEmail($faker->email())
                 ->setDateCreation($faker->dateTimeBetween('-3 months'))
                 ->setDateModif($faker->dateTimeBetween('-3 months'))
-                ->setDescription($faker->text($maxNbChars = 200));
-            $user->setRoles(['ROLE_SUPER_ADMIN']);
-
+                ->setDescription($faker->text($maxNbChars = 200))
+                ->setRoles(['ROLE_SUPER_ADMIN']);
             $manager->persist($user);
             
             $article = new Article();
@@ -134,7 +125,6 @@ class AppFixtures extends Fixture
                 ->setContenu($faker->sentence(10,true))
                 ->setDate($faker->dateTimeBetween('-3 months'))
                 ->setImage($faker->imageUrl($width = 150, $height = 150));
-
             $manager->persist($article);
         }
 
@@ -146,8 +136,8 @@ class AppFixtures extends Fixture
                 ->setEmail("formateur@formateur.formateur")
                 ->setDateCreation($faker->dateTimeBetween('-3 months'))
                 ->setDateModif($faker->dateTimeBetween('-3 months'))
-                ->setDescription("formateur");
-            $user->setRoles(['ROLE_FORMATEUR']);
+                ->setDescription("formateur")
+                ->setRoles(['ROLE_FORMATEUR']);
             $manager->persist($user);
         }
 
@@ -158,8 +148,8 @@ class AppFixtures extends Fixture
                 ->setEmail("admin@admin.admin")
                 ->setDateCreation($faker->dateTimeBetween('-3 months'))
                 ->setDateModif($faker->dateTimeBetween('-3 months'))
-                ->setDescription("admin");
-            $user->setRoles(['ROLE_ADMIN']);
+                ->setDescription("admin")
+                ->setRoles(['ROLE_ADMIN']);
             $manager->persist($user);
         }
 
@@ -170,8 +160,8 @@ class AppFixtures extends Fixture
                 ->setEmail("sadmin@sadmin.sadmin")
                 ->setDateCreation($faker->dateTimeBetween('-3 months'))
                 ->setDateModif($faker->dateTimeBetween('-3 months'))
-                ->setDescription("superadmin");
-            $user->setRoles(['ROLE_SUPER_ADMIN']);
+                ->setDescription("superadmin")
+                ->setRoles(['ROLE_SUPER_ADMIN']);
             $manager->persist($user);
         }
 
