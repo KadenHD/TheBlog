@@ -98,7 +98,8 @@ php bin/console doctrine:fixtures:load
 
 > PHP,
 > HTML,
-> CSS
+> CSS,
+> JS
 
 # To-do
 
