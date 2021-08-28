@@ -7,6 +7,9 @@
   <summary>Sommaire</summary>
   <ol>
     <li>
+      <a href="#Introduction">Introduction</a>
+    </li>
+    <li>
       <a href="#Installation">Installation</a>
     </li>
     <ul>
@@ -27,6 +30,10 @@
       <a href="#Sources">Sources</a>
     </li>
 </details> 
+    
+# Introduction
+    
+Dans le cadre de sa politique Qualité, Sécurité et Environnement (QSE), PROMEO s'oriente vers la dématérialisation des documents liés à son workflow métier. En effet, après une campagne de dématérialisation de la satisfaction client sur la partie alternance, PROMEO souhaite poursuivre sur la partie formation continue. C'est pourquoi PROMEO a souhaité développer une application pour analyser les besoins des salariés de la division Langues. Cette application vise à dématérialiser l'analyse des besoins de formation linguistique. Elle se présente sous deux aspects. Une application destinée aux clients de PROMEO. Un autre accès pour les employés de PROMEO.
     
 # Installation
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/74053c23c5734e3286f85feadf02ecf3)](https://app.codacy.com/gh/KadenHD/TheBlog?utm_source=github.com&utm_medium=referral&utm_content=KadenHD/TheBlog&utm_campaign=Badge_Grade_Settings)
