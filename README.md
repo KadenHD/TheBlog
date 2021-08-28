@@ -105,7 +105,6 @@ php bin/console doctrine:fixtures:load
 - Mise en place du formulaire étudiant
 - création édition et suppresion de questionnaires
 
-- Régler les issues du projet (grace à codacy)
 - optimiser les fonctions crud
 
 # Sources
