@@ -111,3 +111,19 @@ $("#mother-tongue").change(function() {
     }
 });
 $("#mother-tongue").trigger("change");
+
+// Your domains
+$("#domains").change(function() {
+    if ($(this).val().includes("Autre")) {
+        // Others
+        $('#domains-define-div').show();
+        $('#domains-define').attr('required', '');
+        $('#domains-define').attr('data-error', 'Le champs est requis.');
+    } else {
+        // Others
+        $('#domains-define-div').hide();
+        $('#domains-define').removeAttr('required');
+        $('#domains-define').removeAttr('data-error');
+    }
+});
+$("#domains").trigger("change");

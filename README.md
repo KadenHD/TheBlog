@@ -103,7 +103,8 @@ php bin/console doctrine:fixtures:load
 
 # To-do
 
-- Mise en place du formulaire étudiant (js pour dynamiser l'afficher pour les questions qui s'affichent si seulement autre chose est coché)
+- Dans le form d'inscription, séparer les formulaires en 3 parties avec un show/hide et button (onclick ?)
+- Dans le form d'inscription, faire une condition pour cocher que 4 prioritaires par partie maximum
 - création édition et suppresion de questionnaires
 - Réaliser la génération et envoie par mail des pdf
 

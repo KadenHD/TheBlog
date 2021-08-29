@@ -7,9 +7,11 @@
     <main>
         <form method="POST">
             <div class="container">
+
                 <h1 class="h3 mb-3 font-weight-normal text-center">Questionnaire</h1>
                 <div class="row">
                     <div class="card">
+                        <br>
                         <h1 class="h3 mb-3 font-weight-normal text-center">1 - Informations générales</h1>
                         
                         <label for="l-learn">Langue(s) étudiée(s)</label>
@@ -113,17 +115,125 @@
                             <label for="tongue-define">Précisez :</label>
                             <input type="text" name="tongue-define" id="tongue-define" maxlength="50" class="form-control" placeholder="Précisez les autres langues maternelle"></input>
                         </div>
-
+                        <br>
                     </div>
                 </div>
                 <br>
                 <div class="row">
                     <div class="card">
+                        <br>
                         <h1 class="h3 mb-3 font-weight-normal text-center">2 - Compétences</h1>
-                        
+                        <div class="card">
+                            <br>
+                            <h1 class="h4 mb-3 font-weight-normal text-center">A - Compréhension et expression orale</h1>
 
+                            {% for i in range(1,12) %}
+                                {% if i == 1 %}
+                                    {% set titre = "Acceuil des visiteurs" %}
+                                {% elseif i == 2 %}
+                                    {% set titre = "Renseignements téléphoniques courants" %}
+                                {% elseif i == 3 %}
+                                    {% set titre = "Conversations téléphoniques" %}
+                                {% elseif i == 4 %}
+                                    {% set titre = "Audioconférences / Visioconférences" %}
+                                {% elseif i == 5 %}
+                                    {% set titre = "Participation à des réunions de travail en interne" %}
+                                {% elseif i == 6 %}
+                                    {% set titre = "Conduite de réunions de travail en interne" %}
+                                {% elseif i == 7 %}
+                                    {% set titre = "Réunions de travail avec des clients et/ou des fournisseurs" %}
+                                {% elseif i == 8 %}
+                                    {% set titre = "Présentations générales" %}
+                                {% elseif i == 9 %}
+                                    {% set titre = "Négociations clients/fournisseurs" %}
+                                {% elseif i == 10 %}
+                                    {% set titre = "Actions de formation" %}
+                                {% elseif i == 11 %}
+                                    {% set titre = "Déplacements professionnels" %}
+                                {% elseif i == 12 %}
+                                    {% set titre = "Contacts dans un contexte social" %}
+                                {% endif %}
+                            <label for="A{{i}}">{{titre}}</label>
+                            <select name="A{{i}}" id="A{{i}}" class="form-control">
+                                <option value="Pas important">Pas important</option>
+                                <option value="Important">Important</option>
+                                <option value="Très Important">Très Important</option>
+                            </select>
+                            <div name="A{{i}}-checkbox-div" id="A{{i}}-checkbox-div" class="A{{i}}-checkbox-div form-check">
+                                <label class="form-check-label" for="A{{i}}-checkbox">Prioritaire</label>
+                                <input class="A{{i}}-checkbox form-check-input" type="checkbox" value="prioritaire" id="A{{i}}-checkbox" name="A{{i}}-checkbox">
+                            </div> <br>
+                            {% endfor %}
 
+                        </div>
+                        <br>
+                        <div class="card">
+                            <br>
+                            <h1 class="h4 mb-3 font-weight-normal text-center">B - Compréhension et expression écrite</h1>
+
+                                {% for i in range(1,5) %}
+                                {% if i == 1 %}
+                                    {% set titre = "E-mails" %}
+                                {% elseif i == 2 %}
+                                    {% set titre = "Courriers spécifiques" %}
+                                {% elseif i == 3 %}
+                                    {% set titre = "Comptes-rendus internes" %}
+                                {% elseif i == 4 %}
+                                    {% set titre = "Comptes-rendus à usage externe" %}
+                                {% elseif i == 5 %}
+                                    {% set titre = "Documents spécialisés (Contrats, documents techniques...)" %}
+                                {% endif %}
+                            <label for="B{{i}}">{{titre}}</label>
+                            <select name="B{{i}}" id="B{{i}}" class="form-control">
+                                <option value="Pas important">Pas important</option>
+                                <option value="Important">Important</option>
+                                <option value="Très Important">Très Important</option>
+                            </select>
+                            <div name="B{{i}}-checkbox-div" id="B{{i}}-checkbox-div" class="B{{i}}-checkbox-div form-check">
+                                <label class="form-check-label" for="B{{i}}-checkbox">Prioritaire</label>
+                                <input class="B{{i}}-checkbox form-check-input" type="checkbox" value="prioritaire" id="B{{i}}-checkbox" name="B{{i}}-checkbox">
+                            </div> <br>
+                            {% endfor %}
+
+                        </div>
+                        <br>
                     </div>
+                </div>
+                <br>
+                <div class="row">
+                    <div class="card">
+                        <br>
+                        <h1 class="h3 mb-3 font-weight-normal text-center">3 - Vocabulaire professionnel</h1>
+                            
+                        <label for="domains">Parmi les domaines cités ci-dessous, lesquels vous concernent ?</label>
+                        <select required name="domains" id="domains" class="form-control" multiple size="15">
+                            <option value="Management">Management</option>
+                            <option value="Vente / Marketing">Vente / Marketing</option>
+                            <option value="Logistique Transport">Logistique Transport</option>
+                            <option value="Qualité">Qualité</option>
+                            <option value="Voyages">Voyages</option>
+                            <option value="Finances">Finances</option>
+                            <option value="Production">Production</option>
+                            <option value="Achats">Achats</option>
+                            <option value="Commerce">Commerce</option>
+                            <option value="Contexte économique">Contexte économique</option>
+                            <option value="Ressources humaines">Ressources humaines</option>
+                            <option value="Comptabilité">Comptabilité</option>
+                            <option value="Technique Industrialisation">Technique Industrialisation</option>
+                            <option value="Recherche et développement">Recherche et développement</option>
+                            <option value="Autre">Autre</option>
+                        </select>
+
+                        <div name="domains-define-div" id="domains-define-div" class="domains-define-div">
+                            <label for="domains-define">Précisez :</label>
+                            <input type="text" name="domains-define" id="domains-define" maxlength="100" class="domains-define form-control" placeholder="Précisez les autres domaines vous concernant"></input>
+                        </div>
+                        <br>
+                    </div>
+                </div>
+                <div class="text-center">
+                    <br>
+                    <button type="submit" class="btn btn-primary" onclick="return confirm('Souhaitez-vous vraiment envoyer votre inscription ?')">Envoyer</button>
                 </div>
             </div>
         </form>
