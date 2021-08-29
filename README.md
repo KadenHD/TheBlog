@@ -105,6 +105,7 @@ php bin/console doctrine:fixtures:load
 
 - Mise en place du formulaire étudiant (js pour dynamiser l'afficher pour les questions qui s'affichent si seulement autre chose est coché)
 - création édition et suppresion de questionnaires
+- Réaliser la génération et envoie par mail des pdf
 
 - optimiser les fonctions crud
 
