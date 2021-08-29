@@ -16,7 +16,7 @@
                             <a class="secondary" id="links" href="/login">Connexion</a>
                         </li>
                         <li>
-                            <a class="secondary" id="links" href="#">Inscription</a>
+                            <a class="secondary" id="links" href="/inscription" onclick="return confirm('Si vous souhaitez vous inscrire vous allez devoir répondre à un questionnaire, êtes-vous sûr ?')">Inscription</a>
                         </li>
                         {% endif %}
                         {% if (app.user != null) %}

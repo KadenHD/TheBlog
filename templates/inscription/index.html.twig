@@ -1,0 +1,136 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Questionnaire d'inscription{% endblock %}
+
+{% block body %}
+    {% include "navbar.html.twig" %}
+    <main>
+        <form method="POST">
+            <div class="container">
+                <h1 class="h3 mb-3 font-weight-normal text-center">Questionnaire</h1>
+                <div class="row">
+                    <div class="card">
+                        <h1 class="h3 mb-3 font-weight-normal text-center">1 - Informations générales</h1>
+                        
+                        <label for="l-learn">Langue(s) étudiée(s)</label>
+                        <input required type="text" name="l-learn" id="l-learn" maxlength="50" class="form-control" placeholder="Saisissez les langues que vous avez étudiées"></input>
+                        
+                        <label for="name">Nom</label>
+                        <input required type="text" name="name" id="name" maxlength="50" class="form-control" placeholder="Saisissez votre Nom de famille"></input>  
+                        
+                        <label for="surname">Prénom</label>
+                        <input required type="text" name="surname" id="surname" maxlength="50" class="form-control" placeholder="Saisissez votre prénom"></input>
+                        
+                        <label for="job">Êtes-vous demandeur d'emploi ?</label>
+                        <select required name="job" id="job" class="form-control">
+                            <option value="1">Oui</option>
+                            <option value="0">Non</option>
+                        </select>
+                        
+                        <div name="business-div" id="business-div" class="business-div">
+                            <label for="business">Entreprise</label>
+                            <input type="text" name="business" id="business" maxlength="50" class="form-control" placeholder="Saisissez le nom de l'Entreprise où vous êtes"></input>
+                        </div>
+
+                        <label for="phone">Numéro de téléphone</label>
+                        <input required type="tel" name="phone" id="phone" maxlength="10" class="form-control" placeholder="Saisissez votre numéro de téléphone"></input>
+                        
+                        <label for="email">Adresse E-Mail</label>
+                        <input required type="email" name="email" id="email" maxlength="150" class="form-control" placeholder="Saisissez votre adresse E-Mail"></input>
+                        
+                        <div name="service-div" id="service-div" class="service-div">
+                            <label for="service">Service</label>
+                            <input type="text" name="service" id="service" maxlength="150" class="form-control" placeholder="Saisissez votre service"></input>
+                        </div>
+
+                        <label for="train-company">Souhaitez-vous être formé au sein de votre entreprise ?</label>
+                        <select required name="train-company" id="train-company" class="form-control">
+                            <option value="1">Oui</option>
+                            <option value="0">Non</option>
+                        </select>
+
+                        <div name="postal-div" id="postal-div" class="postal-div">
+                            <label for="postal">Code postal de l'entreprise</label>
+                            <input type="int" name="postal" id="postal" class="form-control" placeholder="Saisissez le code postal de votre entreprise"></input>
+                        </div>
+
+                        <div name="training-site-div" id="training-site-div" class="training-site-div">
+                            <label for="training-site">Site(s) de formation souhaité(s)</label>
+                            <select name="training-site" id="training-site" class="form-control" multiple size="7">
+                                <option value="Amiens">Amiens</option>
+                                <option value="Beauvais">Beauvais</option>
+                                <option value="Compiègne">Compiègne</option>
+                                <option value="Friville">Friville</option>
+                                <option value="Saint-Quentin">Saint-Quentin</option>
+                                <option value="Senlis">Senlis</option>
+                                <option value="Soissons">Soissons</option>
+                            </select>
+                        </div>
+
+                        <label for="cpf">Souhaitez-vous utiliser votre CPF ? (Compte personnel de formation)</label>
+                        <select required name="cpf" id="cpf" class="form-control">
+                            <option value="1">Oui</option>
+                            <option value="0">Non</option>
+                        </select>
+                        
+                        <div name="cpf-count-div" id="cpf-count-div" class="cpf-count-div">
+                            <label for="cpf-count">Connaisez-vous votre compteur CPF ?</label>
+                            <select name="cpf-count" id="cpf-count" class="form-control">
+                                <option value="1">Oui</option>
+                                <option value="0">Non</option>
+                            </select>
+                        </div>
+
+                        <div name="cpf-euros-div" id="cpf-euros-div" class="cpf-euros-div">
+                            <label for="cpf-euros">Combien d'euros possédez-vous ?</label>
+                            <input type="int" name="cpf-euros" id="cpf-euros" class="form-control" placeholder="Saisissez le montant en euros"></input>
+                        </div>
+
+                        <div name="cpf-help-div" id="cpf-help-div" class="cpf-help-div">
+                            <label for="cpf-help">Souhaitez-vous être accompagné pour l'utilisation de votre CPF ?</label>
+                            <select name="cpf-help" id="cpf-help" class="form-control">
+                                <option value="1">Oui</option>
+                                <option value="0">Non</option>
+                            </select>
+                        </div>
+
+                        <label for="role">Décrivez votre fonction en quelques mots</label>
+                        <input required type="text" name="role" id="role" class="form-control" placeholder="Saisissez la fonction que vous possédez"></input>
+
+                        <label for="l-use">Décrivez dans quel contexte général vous utilisez la langue à étudier</label>
+                        <input required type="text" name="l-use" id="l-use" class="form-control" placeholder="Saisissez les situations dans lesquelles vous utilisez la langue que vous voulez étudier"></input>
+
+                        <label for="mother-tongue">Quel sont la/les langue(s) maternelle de vos interlocuteurs ?</label>
+                        <select required name="mother-tongue" id="mother-tongue" class="form-control" multiple size="5">
+                            <option value="Anglaise">Anglaise</option>
+                            <option value="Américaine">Américaine</option>
+                            <option value="Allemande">Allemande</option>
+                            <option value="Espagnole">Espagnole</option>
+                            <option value="Autre">Autre</option>
+                        </select>
+
+                        <div name="tongue-define-div" id="tongue-define-div" class="tongue-define-div">
+                            <label for="tongue-define">Précisez :</label>
+                            <input type="text" name="tongue-define" id="tongue-define" maxlength="50" class="form-control" placeholder="Précisez les autres langues maternelle"></input>
+                        </div>
+
+                    </div>
+                </div>
+                <br>
+                <div class="row">
+                    <div class="card">
+                        <h1 class="h3 mb-3 font-weight-normal text-center">2 - Compétences</h1>
+                        
+
+
+                    </div>
+                </div>
+            </div>
+        </form>
+    </main>
+
+    <script type="text/javascript" src="{{ asset('js/inscription.js') }}"></script>
+
+    {% include "footer.html.twig" %}
+{% endblock %}
+

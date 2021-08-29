@@ -1,3 +1,4 @@
+// Show all users and search
 $(document).ready(function(){
     $("#myInput").on("keyup", function() {
         var value = $(this).val().toLowerCase();
