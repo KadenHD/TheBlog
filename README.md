@@ -103,7 +103,7 @@ php bin/console doctrine:fixtures:load
 
 # To-do
 
-- Mise en place du formulaire étudiant
+- Mise en place du formulaire étudiant (js pour dynamiser l'afficher pour les questions qui s'affichent si seulement autre chose est coché)
 - création édition et suppresion de questionnaires
 
 - optimiser les fonctions crud
