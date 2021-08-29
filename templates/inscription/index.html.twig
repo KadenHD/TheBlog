@@ -9,7 +9,7 @@
             <div class="container">
 
                 <h1 class="h3 mb-3 font-weight-normal text-center">Questionnaire</h1>
-                <div class="row">
+                <div class="row" name="form1" id="form1">
                     <div class="card">
                         <br>
                         <h1 class="h3 mb-3 font-weight-normal text-center">1 - Informations générales</h1>
@@ -116,10 +116,12 @@
                             <input type="text" name="tongue-define" id="tongue-define" maxlength="50" class="form-control" placeholder="Précisez les autres langues maternelle"></input>
                         </div>
                         <br>
+                        <button name="btnNext1" id="btnNext1" class="btn btn-primary">Suivant</button>
+                        <br>
                     </div>
                 </div>
                 <br>
-                <div class="row">
+                <div class="row" name="form2" id="form2">
                     <div class="card">
                         <br>
                         <h1 class="h3 mb-3 font-weight-normal text-center">2 - Compétences</h1>
@@ -197,10 +199,14 @@
 
                         </div>
                         <br>
+                        <button name="btnBack2" id="btnBack2" class="btn btn-primary">Précédent</button>
+                        <br>
+                        <button name="btnNext2" id="btnNext2" class="btn btn-primary">Suivant</button>
+                        <br>
                     </div>
                 </div>
                 <br>
-                <div class="row">
+                <div class="row" name="form3" id="form3">
                     <div class="card">
                         <br>
                         <h1 class="h3 mb-3 font-weight-normal text-center">3 - Vocabulaire professionnel</h1>
@@ -229,11 +235,13 @@
                             <input type="text" name="domains-define" id="domains-define" maxlength="100" class="domains-define form-control" placeholder="Précisez les autres domaines vous concernant"></input>
                         </div>
                         <br>
+                        <button name="btnBack3" id="btnBack3" class="btn btn-primary">Précédent</button>
+                        <br>
                     </div>
-                </div>
-                <div class="text-center">
-                    <br>
-                    <button type="submit" class="btn btn-primary" onclick="return confirm('Souhaitez-vous vraiment envoyer votre inscription ?')">Envoyer</button>
+                    <div class="text-center">
+                        <br>
+                        <button type="submit" class="btn btn-primary" onclick="return confirm('Souhaitez-vous vraiment envoyer votre inscription ?')">Envoyer</button>
+                    </div>
                 </div>
             </div>
         </form>

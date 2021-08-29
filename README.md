@@ -103,7 +103,6 @@ php bin/console doctrine:fixtures:load
 
 # To-do
 
-- Dans le form d'inscription, séparer les formulaires en 3 parties avec un show/hide et button (onclick ?)
 - Dans le form d'inscription, faire une condition pour cocher que 4 prioritaires par partie maximum
 - création édition et suppresion de questionnaires
 - Réaliser la génération et envoie par mail des pdf

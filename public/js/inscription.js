@@ -1,5 +1,38 @@
-/*  Hide and show from select option values */
+/*  Hide and show form with next and back button */
+$('#form3').hide();
+$('#form2').hide();
+$('#form1').show();
 
+// form1 next
+$("#btnNext1").on('click', function() {
+    $('#form1').hide();
+    $('#form2').show();
+});
+$("#btnNext1").trigger("change");
+
+// form2 back
+$("#btnBack2").on('click', function() {
+    $('#form1').show();
+    $('#form2').hide();
+});
+$("#btnBack2").trigger("change");
+
+// form2 next
+$("#btnNext2").on('click', function() {
+    $('#form2').hide();
+    $('#form3').show();
+});
+$("#btnNext2").trigger("change");
+
+// form3 back
+$("#btnBack3").on('click', function() {
+    $('#form3').hide();
+    $('#form2').show();
+});
+$("#btnBack3").trigger("change");
+/************************************************/
+
+/*  Hide and show from select option values */
 // Job
 $("#job").change(function() {
     if ($(this).val() == "0") {
@@ -127,3 +160,4 @@ $("#domains").change(function() {
     }
 });
 $("#domains").trigger("change");
+/*********************************************/
