@@ -35,7 +35,7 @@ $("#btnBack3").trigger("change");
 /*  Hide and show from select option values */
 // Job
 $("#job").change(function() {
-    if ($(this).val() == "0") {
+    if ($(this).val() === "0") {
         // Business
         $("#business-div").show();
         $("#business").attr("required", "");
@@ -59,7 +59,7 @@ $("#job").trigger("change");
 
 // Trained inside your company
 $("#train-company").change(function() {
-    if ($(this).val() == "1") {
+    if ($(this).val() === "1") {
         // Business
         $("#postal-div").show();
         $("#postal").attr("required", "");
@@ -83,7 +83,7 @@ $("#train-company").trigger("change");
 
 // CPF
 $("#cpf").change(function() {
-    if ($(this).val() == "1") {
+    if ($(this).val() === "1") {
         // CPF count
         $("#cpf-count-div").show();
         $("#cpf-count").attr("required", "");
@@ -115,7 +115,7 @@ $("#cpf").trigger("change");
 
 // CPF count
 $("#cpf-count").change(function() {
-    if ($(this).val() == "1") {
+    if ($(this).val() === "1") {
         // CPF euros
         $("#cpf-euros-div").show();
         $("#cpf-euros").attr("required", "");
