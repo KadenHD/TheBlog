@@ -1,0 +1,66 @@
+<?php
+
+namespace App\Controller;
+
+use App\Entity\Question;
+use App\Entity\Questionnaire;
+use App\Entity\User;
+use App\Form\QuestionnaireFormType;
+use Doctrine\ORM\EntityManagerInterface;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\Routing\Annotation\Route;
+
+class QuestionnaireController extends AbstractController
+{
+    /**
+     * @Route("/questionnaire", name="questionnaire")
+     */
+    public function index(): Response
+    {
+        return $this->render('questionnaire/index.html.twig', [
+            'controller_name' => 'QuestionnaireController',
+        ]);
+    }
+
+    /**
+     * @Route("/user/questionnaire/create", name="questionnaire_create")
+     */
+    public function createQuestionnaire(Questionnaire $questionnaire = null, Question $question = null,Request $request, EntityManagerInterface $emi)
+    {
+        $questionnaire = new Questionnaire();
+        
+        $form = $this->createForm(QuestionnaireFormType::class, $questionnaire);
+        $form->handleRequest($request);
+
+        if($form->isSubmitted() && $form->isValid())
+        {
+            $user = $this->getUser();
+            $questionnaire->setAuteur($user);
+            $questionnaire->setDate(new \DateTime());
+
+            $emi->persist($questionnaire);
+            $emi->flush();
+
+            return $this->redirectToRoute('question_create', [
+                'id' => $questionnaire->getId(),
+            ]);
+        }   
+
+        return $this->render('questionnaire/create.html.twig', [
+            "formQuestionnaire" => $form->createView(),
+        ]);
+    }
+
+    /**
+     * @Route("/user/questionnaire/show/{id}", name="questionnaire_show")
+     */
+    public function showQuestionnaire(Questionnaire $questionnaire): Response
+    {
+        return $this->render('questionnaire/show.html.twig', [
+            "questionnaire"=>$questionnaire 
+        ]);
+    }
+
+}

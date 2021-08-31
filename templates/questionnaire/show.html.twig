@@ -1,0 +1,27 @@
+{% extends "base.html.twig" %}
+
+{% block title %}Questionnaire{% endblock %}
+
+{% block body %}
+
+        {% include "navbar.html.twig" %}
+        <main>
+                <div class="container">
+                        <div class="row">
+                                <h1 class="h3 mb-3 font-weight-normal text-center">Questionnaire {{ questionnaire.langue }} de niveau {{ questionnaire.niveau }}</h1>
+                                <div class="card text-center">
+                                    {% for question in questionnaire.questions %}
+                                            {{ question.numero }}
+                                            <!-- *Mettre le contenu des question vite fais et faire les buttons qui redirige vers edit avec les id des questions
+                                                *Faut aussi qu'il y ai une condition pour la creation des 10 questions pour les questionnaire genre si le questionnaire
+                                                 a 0 question etc
+                                             -->
+                                             <a href="/user/question/edit/{{question.id}}" class="btn btn-primary" style="background-color: orange">Modifier</a>
+                                    {% endfor %}
+                                </div>
+                        </div>
+                </div>
+        </main>
+        
+        {% include "footer.html.twig" %}
+{% endblock %}

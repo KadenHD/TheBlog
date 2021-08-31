@@ -1,0 +1,10 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    {{ form_start(formQuestionnaire) }}
+    {{ form_row(formQuestionnaire.langue) }}
+    {{ form_row(formQuestionnaire.niveau) }}
+    <br>
+    <button type="submit" class="btn btn-primary" onclick="return confirm('Souhaitez-vous vraiment créer ce questionnaire ?')">Créer</button>
+    {{ form_end(formQuestionnaire) }}
+{% endblock %}

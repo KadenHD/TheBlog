@@ -18,6 +18,9 @@
                         <li>
                             <a class="secondary" id="links" href="/inscription" onclick="return confirm('Si vous souhaitez vous inscrire vous allez devoir répondre à un questionnaire, êtes-vous sûr ?')">Inscription</a>
                         </li>
+                        <li>
+                            <a class="secondary" id="links" href="/questionnaire" onclick="return confirm('Vous allez répondre à un questionnaire permettant de compléter l'inscription et démontrant votre niveau de langue')">Questionnaire de langue</a>
+                        </li>
                         {% endif %}
                         {% if (app.user != null) %}
                         <li>
@@ -25,6 +28,9 @@
                         </li>
                         <li>
                             <a class="secondary" id="links" href="/user/article/create">Créer un article</a>
+                        </li>
+                        <li>
+                            <a class="secondary" id="links" href="/user/questionnaire/create">Créer un questionnaire</a>
                         </li>
                         {% endif %}
                         {% if ( (app.user != null) and ((app.user.roles == ["ROLE_ADMIN"]) or (app.user.roles == ["ROLE_SUPER_ADMIN"])) ) %}
