@@ -103,12 +103,13 @@ php bin/console doctrine:fixtures:load
 
 # To-do
 
-- faire le formtype et form des questions
-- affichage des twig de question
-- édition de questions
-- faire les alerts (affichage et url) des controller question et questionnaire
+- améliorer affichage de certaines pages (surtout question et questionnaire)
+- faire les alerts (affichage et url) des controllers non fait
+
+- faire choisir la langue et le niveau de langue sur la page inscription puis grace a url ou autre choisir au hasard un questionnaire du niveau et langage souhaité
 
 - Dans le form d'inscription, faire une condition pour cocher que 4 prioritaires par partie maximum
+
 - Réaliser la génération et envoie par mail des pdf (dompdf)
 - optimiser les fonctions crud
 

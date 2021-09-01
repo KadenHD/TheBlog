@@ -1,0 +1,22 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Modifier la question
+{% endblock %}
+
+{% block body %}
+
+    {% include "navbar.html.twig" %}    
+
+    <main>
+        <div class="container">
+            <div class="row">
+                <h1 class="h3 mb-3 font-weight-normal text-center">Modifier la question</h1>
+                <div class="card text-center">
+                    {% include "question/form.html.twig" %}
+                </div>
+            </div>
+        </div>
+    </main>
+    {% include "footer.html.twig" %}
+
+{% endblock %}

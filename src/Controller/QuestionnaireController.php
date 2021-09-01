@@ -6,6 +6,7 @@ use App\Entity\Question;
 use App\Entity\Questionnaire;
 use App\Entity\User;
 use App\Form\QuestionnaireFormType;
+use App\Repository\QuestionnaireRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -81,6 +82,27 @@ class QuestionnaireController extends AbstractController
             $emi->flush();
         }
 
-        return $this->redirectToRoute('user_index', ['alert' => "questionnaireDeleted"]);
+        $route = 'user_index';
+        if ($author != $user) {
+            $route = 'questionnaires_show';
+        }
+        return $this->redirectToRoute($route, ['alert' => "questionnaireDeleted"]);
+    }
+
+    /**
+     * @Route("/user/questionnaires", name="questionnaires_show")
+     */
+    public function showUsers(QuestionnaireRepository $repository)
+    {
+        if (($this->getUser()->getRoles() != ["ROLE_SUPER_ADMIN"])
+            && ($this->getUser()->getRoles() != ["ROLE_ADMIN"])
+        ) {
+            return $this->redirectToRoute('user_index', ['alert' => "noAccess"]);
+        }
+
+        $questionnaires = $repository->findAll();
+        return $this->render('questionnaire/questionnaires.html.twig', [
+            "questionnaires" => $questionnaires
+        ]);
     }
 }

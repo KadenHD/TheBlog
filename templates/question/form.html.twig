@@ -1,0 +1,15 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    {{ form_start(formQuestion) }}
+    {{ form_row(formQuestion.question, {'attr': {'placeholder': "Saisissez la question"}}) }}
+    {{ form_row(formQuestion.q1, {'attr': {'placeholder': "Saisissez la réponse 1"}}) }}
+    {{ form_row(formQuestion.q2, {'attr': {'placeholder': "Saisissez la réponse 2"}}) }}
+    {{ form_row(formQuestion.q3, {'attr': {'placeholder': "Saisissez la réponse 3"}}) }}
+    {{ form_row(formQuestion.q4, {'attr': {'placeholder': "Saisissez la réponse 4"}}) }}
+    {{ form_row(formQuestion.reponse) }}
+    <br>
+    <button type="submit" class="btn btn-primary" style="color: orange%" onclick="return confirm('Souhaitez-vous vraiment modifier cet article ?')">Modifier</button>
+    {{ form_end(formQuestion) }}
+    <br>
+{% endblock %}

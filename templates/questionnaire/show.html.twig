@@ -11,31 +11,31 @@
                     <h1 class="h3 mb-3 font-weight-normal text-center">Questionnaire {{ questionnaire.langue }} de niveau {{ questionnaire.niveau }}</h1>
                     <div class="card text-center">
                         {% for question in questionnaire.questions %}
-                        <h1 class="h3 mb-3 font-weight-normal text-center">Question N°{{ question.numero }}</h1>
-                        <p><b>{{ question.question }}</b></p>
                         <div class="card">
-                            <p>Réponse 1 : </p>
-                            {{ question.q1 }}
+                            <h1 class="h3 mb-3 font-weight-normal text-center">Question N°{{ question.numero }}</h1>
+                            <p><b>{{ question.question }}</b></p>
+                            <div class="card">
+                                Réponse 1 : {{ question.q1 }}
+                            </div>
+                            <div class="card">
+                                Réponse 2 : {{ question.q2 }}
+                            </div>
+                            <div class="card">
+                                Réponse 3 : {{ question.q3 }}
+                            </div>
+                            <div class="card">
+                                Réponse 4 : {{ question.q4 }}
+                            </div>
+                            <div class="card-footer">
+                                <p>
+                                    La bonne réponse est la réponse : 
+                                    <br>
+                                    <b>{{ question.reponse }}</b>
+                                </p>
+                            </div>
+                            <a href="/user/question/edit/{{question.id}}" class="btn btn-primary" style="background-color: orange">Modifier</a>
+                            <br>
                         </div>
-                        <div class="card">
-                            <p>Réponse 2 : </p>
-                            {{ question.q2 }}
-                        </div>
-                        <div class="card">
-                            <p>Réponse 3 : </p>
-                            {{ question.q3 }}
-                        </div>
-                        <div class="card">
-                            <p>Réponse 4 : </p>
-                            {{ question.q4 }}
-                        </div>
-                        <div class="card-footer">
-                            <p>
-                                La bonne réponse est la réponse : 
-                                <b>{{ question.reponse }}</b>
-                            </p>
-                        </div>
-                        <a href="/user/question/edit/{{question.id}}" class="btn btn-primary" style="background-color: orange">Modifier</a>
                         <br>
                         {% endfor %}
                     </div>

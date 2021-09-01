@@ -1,6 +1,6 @@
 {% extends "base.html.twig" %}
 
-{% block title %}Gestion des Utilisateurs
+{% block title %}Gestion des Questionnaires
 {% endblock %}
 
 {% block body %}
@@ -8,7 +8,7 @@
     <main>
         <div class="container">
             <div class="row">
-                <h1 class="h3 mb-3 font-weight-normal text-center">Gestion des Utilisateurs</h1>
+                <h1 class="h3 mb-3 font-weight-normal text-center">Gestion des Questionnaires</h1>
                 <div class="card">
                     <div class="w3-padding w3-white notranslate" style="width:100%">
                         <div style="width:100%">
@@ -19,21 +19,23 @@
                                 <thead>
                                     <tr>
                                         <th>Identifiant</th>
-                                        <th>Nom</th>
-                                        <th>Email</th>
+                                        <th>Langue</th>
+                                        <th>Niveau</th>
                                         <th>Date de création</th>
-                                        <th>Rôle</th>
+                                        <th>Auteur</th>
+                                        <th>Rôle de l'Auteur</th>
                                         <th>Actions</th>
                                     </tr>
                                 </thead>
                                 <tbody id="myTable">
-                                    {% for user in users %}
+                                    {% for questionnaire in questionnaires %}
                                     <tr>
-                                        <td>{{user.id}}</td>
-                                        <td>{{user.username}}</td>
-                                        <td>{{user.email}}</td>
-                                        <td>{{user.datecreation | date("d/m/Y")}}</td>
-                                        {% for role in user.roles %}
+                                        <td>{{questionnaire.id}}</td>
+                                        <td>{{questionnaire.Langue}}</td>
+                                        <td>{{questionnaire.Niveau}}</td>
+                                        <td>{{questionnaire.date | date("d/m/Y")}}</td>
+                                        <td>{{questionnaire.Auteur.username}}</td>
+                                        {% for role in questionnaire.Auteur.roles %}
                                         <td>                        
                                             {% if (role == "ROLE_FORMATEUR") %}
                                                 Formateur
@@ -50,10 +52,11 @@
                                             {% endif %}
                                         </td>
                                         <td class="text-center">
-                                        {% if ( (role == "ROLE_ADMIN" or role == "ROLE_SUPER_ADMIN") and (user != app.user) and (app.user.roles != ["ROLE_SUPER_ADMIN"]) ) %}
+                                        {% if ( (role == "ROLE_ADMIN" or role == "ROLE_SUPER_ADMIN") and (questionnaire.Auteur != app.user) and (app.user.roles != ["ROLE_SUPER_ADMIN"]) ) %}
                                             <i style="color: grey;">Pas de droits</i>
                                         {% else %}
-                                            <a href="/user/edit/{{user.id}}" class="btn btn-primary" style="background-color: orange">Modifier</a>
+                                            <a href="/user/questionnaire/show/{{questionnaire.id}}" class="btn btn-primary" style="background-color: orange">Modifier</a>
+                                            <a href="/user/questionnaire/delete/{{questionnaire.id}}" onclick="return confirm('Voulez-vous vraiment supprimer ce questionnaire ?')" class="btn btn-primary" style="background-color: red">Supprimer</a>
                                         {% endif %}
                                         </td>
                                         {% endfor %}
