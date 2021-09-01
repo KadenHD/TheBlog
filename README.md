@@ -103,7 +103,7 @@ php bin/console doctrine:fixtures:load
 
 # To-do
 
-- création édition et suppresion de questionnaires (trouver le system pour faire les questions dans le controller, un for(1,10) par exemple ?)
+- édition de questions et suppresion de questionnaires
 
 - Dans le form d'inscription, faire une condition pour cocher que 4 prioritaires par partie maximum
 - Réaliser la génération et envoie par mail des pdf (dompdf)
