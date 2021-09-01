@@ -27,15 +27,14 @@ class QuestionnaireController extends AbstractController
     /**
      * @Route("/user/questionnaire/create", name="questionnaire_create")
      */
-    public function createQuestionnaire(Questionnaire $questionnaire = null, Question $question = null,Request $request, EntityManagerInterface $emi)
+    public function createQuestionnaire(Questionnaire $questionnaire = null, Question $question = null, Request $request, EntityManagerInterface $emi)
     {
         $questionnaire = new Questionnaire();
-        
+
         $form = $this->createForm(QuestionnaireFormType::class, $questionnaire);
         $form->handleRequest($request);
 
-        if($form->isSubmitted() && $form->isValid())
-        {
+        if ($form->isSubmitted() && $form->isValid()) {
             $user = $this->getUser();
             $questionnaire->setAuteur($user);
             $questionnaire->setDate(new \DateTime());
@@ -46,7 +45,7 @@ class QuestionnaireController extends AbstractController
             return $this->redirectToRoute('question_create', [
                 'id' => $questionnaire->getId(),
             ]);
-        }   
+        }
 
         return $this->render('questionnaire/create.html.twig', [
             "formQuestionnaire" => $form->createView(),
@@ -59,8 +58,29 @@ class QuestionnaireController extends AbstractController
     public function showQuestionnaire(Questionnaire $questionnaire): Response
     {
         return $this->render('questionnaire/show.html.twig', [
-            "questionnaire"=>$questionnaire 
+            "questionnaire" => $questionnaire
         ]);
     }
 
+    /**
+     * @Route("/user/questionnaire/delete/{id}", name="questionnaire_delete", methods={"GET", "DELETE"})
+     */
+    public function deleteArticle(Questionnaire $questionnaire)
+    {
+        $user = $this->getUser();
+        $author = $questionnaire->getAuteur();
+
+        if (($user != $author)
+            && (($user->getRoles() != ["ROLE_SUPER_ADMIN"])
+                && ($user->getRoles() != ["ROLE_ADMIN"]))
+        ) {
+            return $this->redirectToRoute('user_index', ['alert' => "questionnaireNotYour"]);
+        } else {
+            $emi = $this->getDoctrine()->getManager();
+            $emi->remove($questionnaire);
+            $emi->flush();
+        }
+
+        return $this->redirectToRoute('user_index', ['alert' => "questionnaireDeleted"]);
+    }
 }

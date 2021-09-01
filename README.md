@@ -103,7 +103,10 @@ php bin/console doctrine:fixtures:load
 
 # To-do
 
-- édition de questions et suppresion de questionnaires
+- faire le formtype et form des questions
+- affichage des twig de question
+- édition de questions
+- faire les alerts (affichage et url) des controller question et questionnaire
 
 - Dans le form d'inscription, faire une condition pour cocher que 4 prioritaires par partie maximum
 - Réaliser la génération et envoie par mail des pdf (dompdf)

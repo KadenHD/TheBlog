@@ -74,6 +74,31 @@
                 {% endfor %}
             </div>
         </div>
+
+        <div class="container">
+            <div class="row">
+                <h1 class="h3 mb-3 font-weight-normal text-center">Mes questionnaires</h1>
+                <a href="/user/questionnaire/create" class="btn btn-primary" style="background-color: green">Créer un nouveau questionnaire</a>
+                {% for questionnaire in user.questionnaires %}
+                    <div class="col-md-3">
+                        <div class="card text-center">
+                            <div class="card">
+                                <h5 class="card-title">{{ questionnaire.langue }}</h5>
+                            </div>
+                            <div class="card-body text-center">
+                                <h5 class="card-title">{{ questionnaire.niveau }}</h5>
+                                <div class="text-muted">
+                                    {{questionnaire.date | date("d/m/Y")}}
+                                </div>
+                                <a href="/user/questionnaire/show/{{questionnaire.id}}" class="btn btn-primary">Voir</a>
+                                <a href="/user/questionnaire/delete/{{questionnaire.id}}" onclick="return confirm('Voulez-vous vraiment supprimer ce questionnaire ?')" class="btn btn-primary" style="background-color: red">Supprimer</a>
+                            </div>
+                        </div> 
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+
     </main>
     {% include "footer.html.twig" %}
 {% endblock %}

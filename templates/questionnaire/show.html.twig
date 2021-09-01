@@ -36,13 +36,14 @@
                             </p>
                         </div>
                         <a href="/user/question/edit/{{question.id}}" class="btn btn-primary" style="background-color: orange">Modifier</a>
+                        <br>
                         {% endfor %}
                     </div>
                     <div class="card-footer text-center">
                         Créé par {{ questionnaire.auteur.username }}
                         Le {{ questionnaire.date | date("d/m/Y") }}
                     </div>
-                    <a href="/user/questionnaire/delete/{{questionnaire.id}}" class="btn btn-primary" style="background-color: red">Supprimer</a>
+                    <a href="/user/questionnaire/delete/{{questionnaire.id}}" onclick="return confirm('Voulez-vous vraiment supprimer ce questionnaire ?')" class="btn btn-primary" style="background-color: red">Supprimer</a>
                 </div>
             </div>
         </main>

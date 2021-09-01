@@ -4,6 +4,7 @@ namespace App\Controller;
 
 use App\Entity\Question;
 use App\Entity\Questionnaire;
+use App\Form\QuestionFormType;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -37,6 +38,51 @@ class QuestionController extends AbstractController
         return $this->redirectToRoute('questionnaire_show', [
             'id' => $questionnaire->getId(),
             'alert' => 'questionnaireCreated'
+        ]);
+    }
+
+    /**
+     * @Route("/user/question/edit/{id}", name="question_edit")
+     */
+    public function editQuestion(Question $question, Request $request, EntityManagerInterface $emi)
+    {
+        //Edit permissions
+        //Let only admin and super edit profiles
+        $user = $question->getQuestionnaire()->getAuteur();
+        if (($user != $this->getUser())
+            && (($this->getUser()->getRoles() != ["ROLE_SUPER_ADMIN"])
+                && ($this->getUser()->getRoles() != ["ROLE_ADMIN"]))
+        ) {
+            return $this->redirectToRoute('user_index', ['alert' => "questionnaireNotYour"]);
+        }
+        //Let only super edit super
+        if (($user->getRoles() == ["ROLE_SUPER_ADMIN"]) && ($user != $this->getUser())
+            && (($this->getUser()->getRoles() != ["ROLE_SUPER_ADMIN"]))
+        ) {
+            return $this->redirectToRoute('user_index', ['alert' => "questionnaireNoPermissions"]);
+        }
+        //Dont let admin edit admin
+        if (($user->getRoles() == ["ROLE_ADMIN"]) && ($user != $this->getUser())
+            && (($this->getUser()->getRoles() != ["ROLE_SUPER_ADMIN"]))
+        ) {
+            return $this->redirectToRoute('user_index', ['alert' => "questionnaireNoPermissions"]);
+        }
+
+        $form = $this->createForm(QuestionFormType::class, $question);
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            $emi->persist($question);
+            $emi->flush();
+            return $this->redirectToRoute('questionnaire_show', [
+                'id' => $question->getQuestionnaire()->getId(),
+                'alert' => "questionEdited"
+            ]);
+        }
+
+        return $this->render('question/edit.html.twig', [
+            "question" => $question,
+            "formQuestion" => $form->createView()
         ]);
     }
 }
