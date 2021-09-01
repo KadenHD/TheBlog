@@ -6,29 +6,41 @@
 
         {% include "navbar.html.twig" %}
         <main>
-                <div class="container">
-                        <div class="row">
-                                <h1 class="h3 mb-3 font-weight-normal text-center">Questionnaire {{ questionnaire.langue }} de niveau {{ questionnaire.niveau }}</h1>
-                                <div class="card text-center">
-                                    {% for question in questionnaire.questions %}
-                                            Question {{ question.numero }}
-                                            {{ question.question }}
-                                            {{ question.q1 }}
-                                            {{ question.q2 }}
-                                            {{ question.q3 }}
-                                            {{ question.q4 }}
-                                            La bonne réponse est {{ question.reponse }}
-                                            <!-- *Mettre le contenu des question vite fais et faire les buttons qui redirige vers edit avec les id des questions
-                                                *Faut aussi qu'il y ai une condition pour la creation des 10 questions pour les questionnaire genre si le questionnaire
-                                                 a 0 question etc
-                                             -->
-                                             <a href="/user/question/edit/{{question.id}}" class="btn btn-primary" style="background-color: orange">Modifier</a>
-                                    {% endfor %}
-                                    Créé par {{ questionnaire.auteur.username }}
-                                    Le {{ questionnaire.date | date("d/m/Y") }}
-                                </div>
+            <div class="container">
+                <div class="row">
+                    <h1 class="h3 mb-3 font-weight-normal text-center">Questionnaire {{ questionnaire.langue }} de niveau {{ questionnaire.niveau }}</h1>
+                    <div class="card text-center">
+                        {% for question in questionnaire.questions %}
+                        <h1 class="h3 mb-3 font-weight-normal text-center">Question N°{{ question.numero }}</h1>
+                        <p><b>{{ question.question }}</b></p>
+                        <div class="card">
+                            {{ question.q1 }}
                         </div>
+                        <div class="card">
+                            {{ question.q2 }}
+                        </div>
+                        <div class="card">
+                            {{ question.q3 }}
+                        </div>
+                        <div class="card">
+                            {{ question.q4 }}
+                        </div>
+                        <div class="card-footer">
+                            <p>
+                                La bonne réponse est la réponse : 
+                                <b>{{ question.reponse }}</b>
+                            </p>
+                        </div>
+                        <a href="/user/question/edit/{{question.id}}" class="btn btn-primary" style="background-color: orange">Modifier</a>
+                        {% endfor %}
+                    </div>
+                    <div class="card-footer text-center">
+                        Créé par {{ questionnaire.auteur.username }}
+                        Le {{ questionnaire.date | date("d/m/Y") }}
+                    </div>
+                    <a href="/user/questionnaire/delete/{{questionnaire.id}}" class="btn btn-primary" style="background-color: red">Supprimer</a>
                 </div>
+            </div>
         </main>
         
         {% include "footer.html.twig" %}
