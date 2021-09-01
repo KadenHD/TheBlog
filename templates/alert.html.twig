@@ -52,5 +52,26 @@
         <div style="text-align: center;" class="alert alert-success" role="alert">
             Le <b>Mot de passe</b> à bien été <b>Réinitialisé</b> !
         </div>
+    <!-- Questionnaire -->
+    {% elseif app.request.get('alert') == 'questionnaireDeleted' %}
+        <div style="text-align: center;" class="alert alert-success" role="alert">
+            Le <b>Questionnaire</b> à bien été <b>Supprimé</b> !
+        </div>
+    {% elseif app.request.get('alert') == 'questionnaireNotYour' %}
+        <div style="text-align: center;" class="alert alert-danger" role="alert">
+            Le <b>Questionnaire</b> que vous avez essayé d'<b>Éditer</b> n'est <b>Pas le vôtre</b> !
+        </div>
+    {% elseif app.request.get('alert') == 'questionnaireNoPermissions' %}
+        <div style="text-align: center;" class="alert alert-danger" role="alert">
+            Vous n'avez pas la <b>Permission</b> de <b>Modifier</b> ce <b>Questionnaire</b> !
+        </div>
+    {% elseif app.request.get('alert') == 'questionEdited' %}
+        <div style="text-align: center;" class="alert alert-success" role="alert">
+            La <b>Question</b> à bien été <b>Éditée</b> !
+        </div>
+    {% elseif app.request.get('alert') == 'questionnaireCreated' %}
+        <div style="text-align: center;" class="alert alert-success" role="alert">
+            Le <b>Questionnaire</b> à bien été <b>Créé</b> !
+        </div>
     {% endif %}
 {% endblock %}
