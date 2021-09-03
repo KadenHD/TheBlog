@@ -103,6 +103,7 @@ php bin/console doctrine:fixtures:load
 
 # To-do
 
+- trouver et créer ma signature de dev web pour l'intégrer en commentaire avant le footer
 - améliorer affichage de certaines pages (surtout question et questionnaire)
 - faire les alerts (affichage et url) des controllers non fait
 
