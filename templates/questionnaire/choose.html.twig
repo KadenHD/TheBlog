@@ -1,0 +1,37 @@
+{% extends "base.html.twig" %}
+
+{% block title %}Création de Questionnaire{% endblock %}
+
+{% block body %}
+
+    {% include "navbar.html.twig" %}
+    <main>
+        <div class="container">
+            <div class="row">
+                <h1 class="h3 mb-3 font-weight-normal text-center">Création du questionnaire</h1>
+                <div class="card text-center">
+                    <form method="POST">
+                        <select class="form-control">
+                            <option value="Anglais">Anglais</option>
+                            <option value="Allemand">Allemand</option>
+                            <option value="Espagnol">Espagnol</option>
+                        </select>
+                        <select class="form-control">
+                            <option value="A1">A1</option>
+                            <option value="A2">A2</option>
+                            <option value="B1">B1</option>
+                            <option value="B2">B2</option>
+                            <option value="C1">C1</option>
+                            <option value="C2">C2</option>
+                        </select>
+                        <br>
+                        <button type="submit" class="btn btn-primary" onclick="return confirm('Souhaitez-vous vraiment créer ce questionnaire ?')">Créer</button>
+                    </form>
+                    <br>
+                </div>
+            </div>
+        </div>
+    </main>
+    {% include "footer.html.twig" %}
+
+{% endblock %}

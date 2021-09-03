@@ -13,8 +13,14 @@ class InscriptionController extends AbstractController
      */
     public function index(): Response
     {
-        return $this->render('inscription/index.html.twig', [
-            
-        ]);
+        return $this->render('inscription/index.html.twig', []);
+    }
+
+    /**
+     * @Route("/questionnaire", name="questionnaire_choose")
+     */
+    public function choose(): Response
+    {
+        return $this->render('questionnaire/choose.html.twig', []);
     }
 }
