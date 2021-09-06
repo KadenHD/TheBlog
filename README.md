@@ -105,8 +105,6 @@ php bin/console doctrine:fixtures:load
 
 - trouver et créer ma signature de dev web pour l'intégrer en commentaire avant le footer
 - faire un captcha sur les 3 pages accessible par des utilisateurs non-connectés
-- améliorer affichage de certaines pages (surtout question et questionnaire)
-- faire les alerts (affichage et url) des controllers non fait
 
 - faire choisir la langue et le niveau de langue sur la page inscription puis grace a url ou autre choisir au hasard un questionnaire du niveau et langage souhaité
 
