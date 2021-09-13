@@ -117,3 +117,4 @@ php bin/console doctrine:fixtures:load
 
 - Vidéo sur la création de formulaires : https://youtu.be/_cgZheTv-FQ
 - Vidéo sur la réinitialisation de mots de passe par token : https://youtu.be/9RA3yAp4xw8?list=LL
+- Vidéo sur la création d'une libraire pour le bundle reCAPTCHA : https://youtu.be/sNmpddaseK8
