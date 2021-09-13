@@ -103,10 +103,9 @@ php bin/console doctrine:fixtures:load
 
 # To-do
 
-- trouver et créer ma signature de dev web pour l'intégrer en commentaire avant le footer
 - faire un captcha sur les 3 pages accessible par des utilisateurs non-connectés
 
-- faire choisir la langue et le niveau de langue sur la page inscription puis grace a url ou autre choisir au hasard un questionnaire du niveau et langage souhaité
+- faire choisir la langue et le niveau de langue sur la page inscription puis grace a url ou autre choisir au hasard un questionnaire du niveau et langage souhaité et le générer
 
 - Dans le form d'inscription, faire une condition pour cocher que 4 prioritaires par partie maximum
 
